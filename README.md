@@ -1,6 +1,6 @@
 # 백준 풀이 모아 놓는 곳
 
-## 사용언어 : Only Python :D
+## Only Python :D
 
 #### 일기
 
