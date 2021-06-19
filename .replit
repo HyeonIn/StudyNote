@@ -1,2 +1,3 @@
 language = "bash"
 run = ""
+# 전역하고 repl사용 끝나면 지울 예정 ㅎㅅㅎ
