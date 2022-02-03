@@ -44,6 +44,6 @@ for i in range(n):
             answer.append(bfs(i, j, Apart))
 
 answer.sort()
-print(len(answer))
+print(len(answer)) #이거보다 좋은 방법없나.. 결과출력이 조금 아쉽네
 for i in answer:
-    print(i)
+    print(i) 
