@@ -128,5 +128,5 @@ if (i==0) $('#city').append('<option value="' + city[i].code + '" selected>' + c
 - 함수를 만들어 놓으면 동일한 기능을 재사용할 때 유용
 - 같은 내용이 반복될 경우 사용하면 유리함
 
-강의 출처 
+출처 
 - [유튜브 강의 : 한시간만에 끝내는 자바스크립트 입문](https://www.youtube.com/watch?v=hLhHFiwhRfA)
