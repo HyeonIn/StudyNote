@@ -64,6 +64,7 @@ JQuery를 이용하면 긴 코드를 간단 명료하게 단순화 할 수 있�
 - 선언하는 시점에 없는 키는 자동으로 생성됨
 - 많은 변수를 매개변수로 입력할 때나 한번에 접근하고 싶을 때 사용하면 유용함
 - 모든 타입의 변수를 담을 수 있고 서로 달라도 상관 없음
+- 선언 하는 시점에 키밸류 쌍을 입력할 필요 없다. 이후에도 추가 할 수 있다.
 
 ```
 let obj = {
@@ -78,6 +79,9 @@ obj.age = 23; // 키밸류 쌍으로 추가됨
 ```
 
 ### 배열
+
+- 여러 데이터가 순서를 가지고 담겨있는 데이터 타입
+- 인덱스를 통한 접근이 가능하다
 
 ```
 let city = [
@@ -99,9 +103,30 @@ let city = [
 
 ### for
 
+- 자바 for문이랑 비슷한 구조다
 
+```
+for (let i = 0; i<city.length; i++){
+    if (i==0) $('#city').append('<option value="' + city[i].code + '" selected>' + city[i].name + '</option>');
+    else $('#city').append('<option value="' + city[i].code + '">' + city[i].name + '</option>');
+}
+```
 
+## 조건문
+
+### if
+
+- if 이후 괄호 안에 조건문이 실행될 조건을 입력
+- if, else if, else 로 구성
+
+```
+if (i==0) $('#city').append('<option value="' + city[i].code + '" selected>' + city[i].name + '</option>');
+```
+
+## 함수
+
+- 함수를 만들어 놓으면 동일한 기능을 재사용할 때 유용
+- 같은 내용이 반복될 경우 사용하면 유리함
 
 강의 출처 
 - [유튜브 강의 : 한시간만에 끝내는 자바스크립트 입문](https://www.youtube.com/watch?v=hLhHFiwhRfA)
-- 

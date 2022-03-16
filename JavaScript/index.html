@@ -9,10 +9,7 @@
     <div class="container">
         <div>이름 : <input type="text" id="name" value="" /></div>
         <div>지역 :
-            <select id="city" onchange="changeCity();">
-                <option value="02" selected>서울</option>
-                <option value="064">제주</option>
-            </select>
+            <select id="city" onchange="changeCity();"></select>
         <div>동네 :
             <select id="region_02">
                 <option value="">강남</option>
@@ -56,12 +53,31 @@
             $("#region_064").hide();
             $("#region_"+city).show();
         }
+
+        function loadcity(){
+            let city = [{
+                    code: "02", 
+                    name: "서울"
+                },
+                {
+                    code:"064", 
+                    name: "제주"
+                }
+            ];
+            for (let i = 0; i<city.length; i++){
+               if (i==0) $('#city').append('<option value="' + city[i].code + '" selected>' + city[i].name + '</option>');
+               else $('#city').append('<option value="' + city[i].code + '">' + city[i].name + '</option>');
+            }
+             
+        }
+        loadcity();
         var x = 1;
         x = x + 2;
         document.getElementById("test").value = x;
 
         var x = 2;
         document.getElementById("test").value = x;
+        
     </script>
 </body>
 </html>
