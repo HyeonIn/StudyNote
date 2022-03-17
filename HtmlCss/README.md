@@ -21,7 +21,7 @@
 
 ## 자주 사용되는 Element들
 
-### input
+### **input**
 
 ```html
 <input type="text" />
@@ -88,15 +88,18 @@
 
 - 주로 링크 명시할때 사용
 - href 속성 지정으로 링크 지정가능
-- target 속성으로 새창에 띄울건지 조정가능
+- target 속성으로 새 창을 어디에 띄울건지 조정가능
 
 ## Attribute
 
-Attribute는 HTML Element의 추가적인 속성을 관리하기 위한 요소. Element별로 사용가능한 Attribute가 다르다.
+Attribute는 HTML Element의 추가적인 속성을 관리하기 위한 요소.  
+Element별로 사용가능한 Attribute가 다르다.
 
 ```html
-<img width = "400px" src="link"> //이 경우엔 width와 src가 Attribute가 된다.
+<img width = "400px" src="link"> 
 ```
+
+- 이 경우엔 **width**와 **src**가 **img** Element의 Attribute가 된다.
 
 ## style
 
@@ -125,7 +128,7 @@ Attribute는 HTML Element의 추가적인 속성을 관리하기 위한 요소. 
 <p class="color-primary font-50">I'm big</p>
 ```
 
-- 위처럼 html 스크립트 안에 클래스 형식으로 style을 선언해주면 style 변경 소요가 발생할 때 style 내부만 수정해주면 된다. 
+- 위처럼 html 스크립트 안에 클래스 형식으로 style을 선언해주면 style 변경 소요가 발생할 때 style 내부만 수정해주면 된다.
 
 ``` css
 .color-primary{
@@ -158,9 +161,10 @@ Attribute는 HTML Element의 추가적인 속성을 관리하기 위한 요소. 
 
 - 많이 사용되는 버튼 클릭 이벤트다. 사용자가 버튼을 누르면 알람창이 뜬다.
 
-### body
+## CSS
 
-pass
+위에서 적용한 CSS는 효율적인 방법은 아니다.  
+CSS에 대해서 더 알아본다.
 
 ## 공부하기 유용한 사이트
 
