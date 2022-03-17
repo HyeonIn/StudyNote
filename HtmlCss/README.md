@@ -4,12 +4,12 @@
 
 웹을 이루는 가장 기초적인 구성 요소로, 웹 콘텐츠의 의미와 구조를 정의할 때 사용한다.
 
-## 구조
+### 구조
 
 ![image](https://www.devkuma.com/data/page/115/html_template.png)  
 출처 : <devkuma.com/docs/html/html-기본-구조/>
 
-## Element(요소)
+### Element(요소)
 
 ```html
 <Element>Contents</Element> 
@@ -19,9 +19,9 @@
 
 - HTML은 Element의 조합이다.
 
-## 자주 사용되는 Element들
+### 자주 사용되는 Element들
 
-### **input**
+#### input
 
 ```html
 <input type="text" />
@@ -31,7 +31,7 @@
 - type을 지정할 수 있다. (number, text 등)
 - 닫는 형식이 없다
   
-### select
+#### select
 
 ```html
 <select>
@@ -42,7 +42,7 @@
 
 - 사용자의 선택을 입력받는 요소
   
-### table
+#### table
 
 ```css
 .tb-head>tr>td{
@@ -80,7 +80,7 @@
 - tbody : 행 데이터
 - 테이블 역시 스타일 지정이 가능하고 css로 해준 모습이다.
 
-### a
+#### a
 
 ```html
 <a href="https://www.naver.com">네이버</a>
@@ -90,7 +90,7 @@
 - href 속성 지정으로 링크 지정가능
 - target 속성으로 새 창을 어디에 띄울건지 조정가능
 
-## Attribute
+### Attribute
 
 Attribute는 HTML Element의 추가적인 속성을 관리하기 위한 요소.  
 Element별로 사용가능한 Attribute가 다르다.
@@ -101,9 +101,9 @@ Element별로 사용가능한 Attribute가 다르다.
 
 - 이 경우엔 **width**와 **src**가 **img** Element의 Attribute가 된다.
 
-## style
+### style
 
-### 스타일은 HTML을 꾸미는 역할
+#### 스타일은 HTML을 꾸미는 역할
 
 ```html
 <p style="color: red;">I'm red</p>
@@ -151,7 +151,7 @@ Element별로 사용가능한 Attribute가 다르다.
 - 위와 같이 style element를 css 파일로 따로 저장해서 사용할 수도 있다.
 - 개발자가 css파일을 직접 작성해도 되고 디자이너들이 미리 만들어놓은 css파일을 다운받아서 사용할 수도 있다.
 
-## event
+### event
 
 클릭, 스크롤 다운을 할 때 이벤트가 발생된다. 이런 사용자의 행위를 인식하는 것을 event Element라고 한다.
 
