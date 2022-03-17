@@ -111,7 +111,8 @@ Element별로 사용가능한 Attribute가 다르다.
 <p style="font-size: 50px;">I'm blue</p>
 ```
 
-일일히 스타일을 지정해줄 수 있지만, 코드가 길어질 때 한번에 변경해야 할 소요가 생기면 비효율적이다. 이때, CSS를 통해서 전체 페이지에 스타일을 적용할 수 있다.
+일일히 스타일을 지정해줄 수 있지만, 코드가 길어질 때 한번에 변경해야 할 소요가 생기면 비효율적이다.  
+이때, CSS를 통해서 전체 페이지에 스타일을 적용할 수 있다.
 
 ``` html
 <style>
@@ -161,26 +162,64 @@ Element별로 사용가능한 Attribute가 다르다.
 
 - 많이 사용되는 버튼 클릭 이벤트다. 사용자가 버튼을 누르면 알람창이 뜬다.
 
-## CSS
+## CSS(Cascading Style Sheets)
 
-위에서 적용한 CSS는 효율적인 방법은 아니다.  
+위에서 예시로 짧게 적용한 CSS는 효율적인 방법은 아니다.  
 CSS에 대해서 더 알아본다.
 
-### CSS 문법
-
-
-디자인 요소를 의도에 맞게 적용하기 위해서는 여러 종류의 선택자를 잘 혼합해서 사용하는 것이 중요하다.
+### CSS 구조
 
 ![image](https://www.devkuma.com/data/page/344/css_syntax2.png)  
 출처 : <https://www.devkuma.com/docs/css/css-%EB%AC%B8%EB%B2%95/>
 
-## 공부하기 유용한 사이트
+- 디자인 요소를 의도에 맞게 적용하기 위해서는 여러 종류의 선택자를 잘 혼합해서 사용하는 것이 중요하다.
+
+### 선택자
+
+- "*" : 전체선택자
+  - 전체적인 스타일 적용가능
+- "p" : 태그 선택자
+  - 원하는 태그를 선택해서 해당 태그가 달린 모든 값들에 스타일을 적용한다.
+- ".class" : 클래스 선택자
+  - 사용자가 클래스명을 지정해서 해당 클래스가 적용된 값에만 스타일을 지정가능하다.
+  - 클래스명 앞에 "." 을 꼭 명시하자
+- "#id" : 아이디 선택자
+  - 이때 html에서 명시한 ID는 모든 필드에 유일한 값이어야 됨
+- "div(이 값은 위에 세 값중 아무거나 되도 상관없음) ul" : 하위 선택자
+  - 하위에 있는 값을 직접 입력해서 찾아가는 선택자
+  - div 안에 ul을 전부 스타일 적용해주겠다.
+- "div>ul" : 자식 선택자
+  - 자식 경로를 하나하나 찾아가는 개념
+
+```css
+p {
+    background: yellowgreen;
+}
+
+.class1{
+    color: green;
+}
+```
+
+```html
+<p class="class1">Hi</p>
+```
+
+- 위 경우 처럼 선택자가 겹친 경우 서로 다른 내용의 스타일이면 중첩되어 적용된다.
+  - 위의 경우에선 **background**, **color**가 적용된 Hi가 출력 될 것.
+
+### Property
+
+- css에서 속성은 property라고 부른다.
+- 속성 값은 property-value
+
+### 공부하기 유용한 사이트
 
 - [w3schools.com](https://w3schools.com)
   - 웹 관련된 공부자료들이 풍부함
   - html, js, css 등등
 
-### 출처
+#### 출처
 
 - [유튜브 강의 : 한시간만에 끝내는 HTML+CSS 입문](https://www.youtube.com/watch?v=cb7VlXqFla4)
 - [참고서 : 개발자를 위한 웹 기술(Mozilla)](https://developer.mozilla.org/ko/docs/Web/HTML)
