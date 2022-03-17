@@ -6,8 +6,8 @@
 
 ## 구조
 
-![image](https://www.devkuma.com/data/page/115/html_template.png)
-출처 : devkuma.com/docs/html/html-기본-구조/
+![image](https://www.devkuma.com/data/page/115/html_template.png)  
+출처 : <devkuma.com/docs/html/html-기본-구조/>
 
 ## Element(요소)
 
@@ -165,6 +165,14 @@ Element별로 사용가능한 Attribute가 다르다.
 
 위에서 적용한 CSS는 효율적인 방법은 아니다.  
 CSS에 대해서 더 알아본다.
+
+### CSS 문법
+
+
+디자인 요소를 의도에 맞게 적용하기 위해서는 여러 종류의 선택자를 잘 혼합해서 사용하는 것이 중요하다.
+
+![image](https://www.devkuma.com/data/page/344/css_syntax2.png)  
+출처 : <https://www.devkuma.com/docs/css/css-%EB%AC%B8%EB%B2%95/>
 
 ## 공부하기 유용한 사이트
 
