@@ -1,4 +1,4 @@
-# 자바스크립트 공부
+# :open_book: JavaScript
 
 ## 개요
 
