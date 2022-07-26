@@ -1,4 +1,4 @@
-# Html+Css 공부
+# :open_book: HTML/CSS
 
 ## HTML(HyperText Markup Language)
 
