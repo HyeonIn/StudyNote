@@ -1,4 +1,4 @@
-# node.js 공부
+# :open_book: Node.js
 
 ## 개요
 
