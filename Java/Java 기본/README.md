@@ -1,7 +1,4 @@
-# :open_book: Java
-
 ## Java 기본
-
 
 ### Variable(변수)
 
