@@ -15,4 +15,5 @@ git commit -m "java : casting, datatype"
 <img src="https://img.shields.io/badge/CSS-A2EC8B?style=flat-square"/>
 <img src="https://img.shields.io/badge/JavaScript-A2EC8B?style=flat-square"/>
 <img src="https://img.shields.io/badge/Node.js-A2EC8B?style=flat-square"/>
+<img src="https://img.shields.io/badge/Java-A2EC8B?style=flat-square"/>
 </p>
