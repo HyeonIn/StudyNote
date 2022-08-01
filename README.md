@@ -8,12 +8,12 @@
 ```
 git commit -m "java : casting, datatype"
 ```
+
 ### :books: What I Learned
-<p>
-<img src="https://img.shields.io/badge/Bootstrap-A2EC8B?style=flat-square">
-<img src="https://img.shields.io/badge/HTML-A2EC8B?style=flat-square"/>
-<img src="https://img.shields.io/badge/CSS-A2EC8B?style=flat-square"/>
-<img src="https://img.shields.io/badge/JavaScript-A2EC8B?style=flat-square"/>
-<img src="https://img.shields.io/badge/Node.js-A2EC8B?style=flat-square"/>
-<img src="https://img.shields.io/badge/Java-A2EC8B?style=flat-square"/>
-</p>
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-A2EC8B?style=flat-square)](Bootstrap) 
+[![HtmlCss](https://img.shields.io/badge/HtmlCss-A2EC8B?style=flat-square)](HtmlCss) 
+[![JavaScript](https://img.shields.io/badge/JavaScript-A2EC8B?style=flat-square)](JavaScript) 
+[![NodeJS](https://img.shields.io/badge/NodeJS-A2EC8B?style=flat-square)](nodeJs) 
+[![Java](https://img.shields.io/badge/Java-A2EC8B?style=flat-square)](Java) 
+[![Algorithm](https://img.shields.io/badge/Algorithm-A2EC8B?style=flat-square)](Algorithm) 
+
