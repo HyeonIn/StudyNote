@@ -4,7 +4,8 @@
 
 ### 목적
 - 알고리즘 문제를 풀면서 기본이 부족함을 느낌
-- 빠르고 정확한 풀이를 떠올리기 위해 개념을 공부하기로 함
+- 튼튼한 기본 개념을 바탕으로 SW 문제 해결 역량을 키우자
 
 ### 공부 내용
-- [I/O](IO.md)
+- [I/O](IO.md) 
+- [Algorithm&Performance](Algorithm&Performance.md)
