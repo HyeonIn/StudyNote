@@ -10,10 +10,10 @@ git commit -m "java : casting, datatype"
 ```
 
 ### :books: What I Learned
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-A2EC8B?style=flat-square)](Bootstrap) 
-[![HtmlCss](https://img.shields.io/badge/HtmlCss-A2EC8B?style=flat-square)](HtmlCss) 
-[![JavaScript](https://img.shields.io/badge/JavaScript-A2EC8B?style=flat-square)](JavaScript) 
-[![NodeJS](https://img.shields.io/badge/NodeJS-A2EC8B?style=flat-square)](nodeJs) 
-[![Java](https://img.shields.io/badge/Java-A2EC8B?style=flat-square)](Java) 
-[![Algorithm](https://img.shields.io/badge/Algorithm-A2EC8B?style=flat-square)](Algorithm) 
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-FBE472?style=flat-square)](Bootstrap) 
+[![HtmlCss](https://img.shields.io/badge/HtmlCss-FBE472?style=flat-square)](HtmlCss) 
+[![JavaScript](https://img.shields.io/badge/JavaScript-FBE472?style=flat-square)](JavaScript) 
+[![NodeJS](https://img.shields.io/badge/NodeJS-FBE472?style=flat-square)](nodeJs) 
+[![Java](https://img.shields.io/badge/Java-FBE472?style=flat-square)](Java) 
+[![Algorithm](https://img.shields.io/badge/Algorithm-FBE472?style=flat-square)](Algorithm) 
 
