@@ -10,4 +10,4 @@
 - [I/O](IO.md) 
 - [Algorithm&Performance](Algorithm&Performance.md)
 - [Brute-force](BruteForce.md)
-- [Stack](Stack.md)
+- [Stack/Queue](StackQueue.md)
