@@ -9,3 +9,4 @@
 ### 공부 내용
 - [I/O](IO.md) 
 - [Algorithm&Performance](Algorithm&Performance.md)
+- [Brute-force](BruteForce.md)
