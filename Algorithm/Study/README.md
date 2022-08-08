@@ -11,3 +11,4 @@
 - [Algorithm&Performance](Algorithm&Performance.md)
 - [Brute-force](BruteForce.md)
 - [Stack/Queue](StackQueue.md)
+- [List](List.md)
