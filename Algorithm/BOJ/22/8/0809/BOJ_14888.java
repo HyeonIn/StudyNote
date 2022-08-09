@@ -11,8 +11,8 @@ public class Main {
 	static char[] result;
 	static char[] oper;
 	static boolean[] used;
-	static int max;
-	static int min;
+	static int max = Integer.MIN_VALUE;
+	static int min = Integer.MAX_VALUE;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -28,6 +28,7 @@ public class Main {
 		for (int i = 0; i < n; i++) {
 			arr[i] = Integer.parseInt(temp[i]);
 		}
+		
 		temp = br.readLine().split(" ");
 		for (int j = 0, i = 0; j < 4; j++) {
 			int amount = Integer.parseInt(temp[j]);
@@ -38,13 +39,28 @@ public class Main {
 			}
 		}
 		perm(0);
-		System.out.println(Arrays.toString(oper));
+		System.out.println(max);
+		System.out.println(min);
 	}
 	public static void perm(int idx) {
 		if (idx == n-1) {
+			int temp = arr[0];
 			for (int i = 0; i < result.length; i++) {
-				result[i]
+				if (result[i] == '+') {
+					temp += arr[i+1];
+				}
+				else if (result[i] == '-') {
+					temp -= arr[i+1];
+				}
+				else if (result[i] == '*') {
+					temp *= arr[i+1];
+				}
+				else {
+					temp /= arr[i+1];
+				}
 			}
+			max = Math.max(temp, max);
+			min = Math.min(temp, min);
 			return;
 		}
 		for (int i = 0; i < n-1; i++) {
