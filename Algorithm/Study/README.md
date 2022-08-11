@@ -12,3 +12,4 @@
 - [Brute-force](BruteForce.md)
 - [Stack/Queue](StackQueue.md)
 - [List](List.md)
+- [Tree](Tree.md)
