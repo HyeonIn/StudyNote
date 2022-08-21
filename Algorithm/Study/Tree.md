@@ -75,3 +75,49 @@
     - 루트 노드의 인덱스 1
     - 편향 이진 트리의 경우에는 비효율적인 메모리 소모
         - 이런 경우에는 연결리스트가 효율적임
+
+### 이진트리 순회
+
+- 순회 : 트리의 노드를 체계적으로 방문하는 것
+
+#### 순회 방법
+
+- 전위 순회(preorder traversal) : VLR
+  - 부모노드 방문 후, 자식노드를 좌, 우 순서로 방문
+- 중위 순회(inorder traversal) : LVR
+  - 왼쪽 자식노드, 부모노드, 오른쪽 자식노드 순으로 방문
+- 후위 순회(postorder traversal) : LRV
+  - 자식 노드를 좌우 순서로 방문한 후, 부모노드 방문
+
+#### 구현 방법
+
+1. preorder
+```
+preorder_traverse(T)
+  if (T is not null){
+    visit(T);
+    preorder_traverse(T.left)
+    preorder_traverse(T.right)
+  }
+End preorder_traverse
+```
+2. inorder
+```
+inorder_traverse(T)
+  if (T is not null){
+    inorder_traverse(T.left)
+    visit(T)
+    inorder_traverse(T.right)
+  }
+End inorder_traverse
+```
+3. postorder
+```
+postorder_traverse(T)
+  if (T is not null){
+    postorder_traverse(T.left)
+    postorder_traverse(T.right)
+    visit(T)
+  }
+End postorder_traverse
+```
