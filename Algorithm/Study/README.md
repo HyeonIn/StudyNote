@@ -14,3 +14,4 @@
 - [List](List.md)
 - [Tree](Tree.md)
 - [BFS/DFS](BFS&DFS.md)
+- [Heap](Heap.md)
