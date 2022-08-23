@@ -24,7 +24,7 @@ public class Solution {
 			
 			N = Integer.parseInt(temp[0]);
 			start = Integer.parseInt(temp[1]);
-			
+			List[] graph = new LinkedList[101];
 			graph = new boolean[101][101];
 			check = new int[101];
 			
