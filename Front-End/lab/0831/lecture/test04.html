@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+        /* margin: 10px; */
+      }
+      #target1 {
+        position: relative;
+        background-color: orange;
+        top: 20px;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+      }
+      #target2 {
+        /*조상 노드중 가장 가까운 non-static 기준, 없으면 html 기준*/
+        position: absolute;
+        background-color: green;
+        top: 20px;
+        left: 20px;
+      }
+      .parent {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        overflow: visible;
+      }
+      #fixed {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        left: 10px;
+        top: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fixed"></div>
+    <div></div>
+    <div id="target1"></div>
+    <div class="parent">
+      <div id="target2"></div>
+    </div>
+    <h2><span>test</span></h2>
+    <h2><span>test</span></h2>
+    <h2><span>test</span></h2>
+    <h2><span>test</span></h2>
+    <h2><span>test</span></h2>
+    <h2><span>test</span></h2>
+    <h2><span>test</span></h2>
+    <h2><span>test</span></h2>
+    <h2><span>test</span></h2>
+    <h2><span>test</span></h2>
+  </body>
+</html>

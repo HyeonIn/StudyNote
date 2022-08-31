@@ -1,10 +1,8 @@
-# :open_book: HTML/CSS
-
 ## HTML(HyperText Markup Language)
 
 웹을 이루는 가장 기초적인 구성 요소로, 웹 콘텐츠의 의미와 구조를 정의할 때 사용한다.
 
-### 구조
+### HTML5의 특징
 
 ![html 구조](https://github.com/HyeonIn/StudyNote/blob/main/HtmlCss/html_template.png)  
 출처 : <devkuma.com/docs/html/html-기본-구조/>
@@ -12,7 +10,7 @@
 ### Element(요소)
 
 ```html
-<Element>Contents</Element> 
+<Element>Contents</Element>
 
 <head>, <title>, <body>, <header>, <footer>, <article>, <section>, <p>, <div>, <span>, <img>, <aside>, <audio>, <canvas>, <datalist>, <details>, <embed>, <nav>, <output>, <progress>, <video>, <ul>, <ol>, <li> etc..
 ```
@@ -30,49 +28,52 @@
 - 사용자의 입력을 받는 요소
 - type을 지정할 수 있다. (number, text 등)
 - 닫는 형식이 없다
-  
+
 #### select
+
+#### semantic
+- 의미론적인 코드
 
 ```html
 <select>
-    <option>Seoul</option>
-    <option>Jeju</option>
+  <option>Seoul</option>
+  <option>Jeju</option>
 </select>
 ```
 
 - 사용자의 선택을 입력받는 요소
-  
+
 #### table
 
 ```css
-.tb-head>tr>td{
-    border : 1px solid #000;
-    font-size: 14px;
-    font-weight: bold;
-    color: red;
+.tb-head > tr > td {
+  border: 1px solid #000;
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
 }
 
-.tb-body>tr>td{
-    border: 1px solid #000;
+.tb-body > tr > td {
+  border: 1px solid #000;
 }
 ```
 
 ```html
 <table>
-    <thead class="tb-head">
-        <tr>
-            <td>이름</td>
-            <td>지역</td>
-            <td>전화번호</td>
-        </tr>
-    </thead>
-    <tbody class="tb-body">
-        <tr>
-            <td>홍길동</td>
-            <td>서울</td>
-            <td>010-111-1111</td>
-        </tr>
-    </tbody>
+  <thead class="tb-head">
+    <tr>
+      <td>이름</td>
+      <td>지역</td>
+      <td>전화번호</td>
+    </tr>
+  </thead>
+  <tbody class="tb-body">
+    <tr>
+      <td>홍길동</td>
+      <td>서울</td>
+      <td>010-111-1111</td>
+    </tr>
+  </tbody>
 </table>
 ```
 
@@ -96,7 +97,7 @@ Attribute는 HTML Element의 추가적인 속성을 관리하기 위한 요소.
 Element별로 사용가능한 Attribute가 다르다.
 
 ```html
-<img width = "400px" src="link"> 
+<img width="400px" src="link" />
 ```
 
 - 이 경우엔 **width**와 **src**가 **img** Element의 Attribute가 된다.
@@ -114,14 +115,14 @@ Element별로 사용가능한 Attribute가 다르다.
 일일히 스타일을 지정해줄 수 있지만, 코드가 길어질 때 한번에 변경해야 할 소요가 생기면 비효율적이다.  
 이때, CSS를 통해서 전체 페이지에 스타일을 적용할 수 있다.
 
-``` html
+```html
 <style>
-    .color-primary{
-        color: red;
-    }
-    .font-50{
-        font-size: 50px;
-    }
+  .color-primary {
+    color: red;
+  }
+  .font-50 {
+    font-size: 50px;
+  }
 </style>
 
 <p class="color-primary">I'm red</p>
@@ -131,18 +132,18 @@ Element별로 사용가능한 Attribute가 다르다.
 
 - 위처럼 html 스크립트 안에 클래스 형식으로 style을 선언해주면 style 변경 소요가 발생할 때 style 내부만 수정해주면 된다.
 
-``` css
-.color-primary{
-    color: rgb(190, 74, 74);
+```css
+.color-primary {
+  color: rgb(190, 74, 74);
 }
-.font-50{
-    font-size: 50px;
+.font-50 {
+  font-size: 50px;
 }
 ```
 
 ```html
 ...
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css" />
 
 <p class="color-primary">I'm red</p>
 <p class="color-primary">I'm blue</p>
@@ -219,11 +220,11 @@ CSS에 대해서 더 알아본다.
 
 ```css
 p {
-    background: yellowgreen;
+  background: yellowgreen;
 }
 
-.class1{
-    color: green;
+.class1 {
+  color: green;
 }
 ```
 
@@ -242,14 +243,14 @@ p {
 ### CSS 주석
 
 ```css
-.font-50{
-    font-size: 50px;
-}/*font 크기를 50px로 지정하는 클래스*/
+.font-50 {
+  font-size: 50px;
+} /*font 크기를 50px로 지정하는 클래스*/
 ```
 
 - 위와 같이 css 안에도 주석을 작성할 수 있다.
 - css 코드가 간단하다면 크게 필요 없지만 복잡한 css 구문을 작성할 때엔 주석을 사용해야 할 것이다.
-  
+
 ### 공부하기 유용한 사이트
 
 - [w3schools.com](https://w3schools.com)
