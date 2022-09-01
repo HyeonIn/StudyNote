@@ -1,0 +1,37 @@
+사용자 정보
+
+img : 아이언맨.png
+id : IronMan
+name : 토니 스타크
+email : ironman@ssafy.com
+age : 53
+
+img : 캡틴.png
+id : CaptainAmerica
+name : 스티브 로저스
+email : Captain@ssafy.com
+age : 30
+
+img : 토르.png
+id : Thor
+name : 토르
+email : GodOfThunder@ssafy.com
+age : 1500
+
+img : 헐크.png
+id : Hulk
+name : 브루스 배너
+email : hulk@ssafy.com
+age : 54
+
+img : 블랙위도우.png
+id : BlackWidow
+name : 나타샤 로마노프
+email : blackwidow@ssafy.com
+age : 38
+
+img : 울트론.png
+id : Ultron
+name : 울트론
+email : ultron@ssafy.com
+age : 0
