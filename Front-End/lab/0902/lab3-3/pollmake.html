@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: white;
+            border: 1px solid gray;
+        }   
+        input {
+            background-color: lightgray;
+            height: 25px;
+            margin-left: 10px; 
+            margin-top: 5px;
+            border: none;
+        }
+        div {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 380px; border: 1px solid gray; border-radius: 5px;">
+        <div style="text-align: center;"><h3>투표 만들기</h3></div>
+        <div style="margin: 10px 5px;">
+            <h4 style="margin: 0px; display: inline-block;">시작일</h3>
+                <input type="date" id="start_date" style="margin-left : 5px;">
+            <h4 style="margin: 0px; display: inline-block;">종료일</h3>
+                <input type="date" id="end_date" style="margin-left : 5px;">
+        </div>
+        <div style="margin: 10px 5px;">
+            <h4 style="margin: 0px; display: inline-block;">질문 내용</h3>
+            <input type="text" id="voteTitle" placeholder="질문내용..." style="width: 70%;  background-color: lightgray; color: white;">
+        </div>
+        <div style="margin: 10px 5px;">
+            <h4 style="margin: 0px; display: inline-block;">답변 항목</h3>
+            <button id="add_ans">추가</button>
+        </div>
+        <div id="voteList">
+            <div id="list1"><input type="text" class="voteList"></div>
+        </div>
+        <div style="margin: 10px;text-align: center;"><button style="background-color: darkmagenta; border: 0px; color: white;" id="btn_make_vote">투표 생성</button></div>
+    </div>
+    <script src="./js/vote.js"></script>
+</body>
+</html>

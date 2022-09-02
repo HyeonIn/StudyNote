@@ -23,17 +23,20 @@ header a{
     float: left;
     line-height: 70px;
 }
-.header_nav_menu{
+.header_nav_menu_before{
     display: inline-block;
     float: right;
     line-height: 70px;
 }
+.header_nav_menu_after{
+    display: inline-block;
+    float: right;
+    line-height: 70px;
+    display: none;
+}
 .header_nav_menuitem{
     display: inline-block;
     line-height: 70px;
-}
-.nav_link_login{
-    display: none;
 }
 .nav_link_unlogin{
     
@@ -41,6 +44,7 @@ header a{
 .content{
     width: 80%;
     max-width: 1200px;
+    min-height: 1000px;
     margin: auto;
     margin-top: 20px;
 }
@@ -63,9 +67,17 @@ header a{
     text-align: center;
     border-radius: 5px;
 }
+.store_display a {
+    text-decoration: none;
+    color: black;
+}
 .store_item{
     padding-left: 0px;
     list-style-type: none;
+}
+.store_item a{
+    text-decoration: none;
+    color: black;
 }
 .store_item li{
     padding-left: 10px;
@@ -166,6 +178,7 @@ header a{
 footer{
     width: 80%;
     max-width: 1200px;
+    
     margin: auto;
 }
 footer ul{
