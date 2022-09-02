@@ -77,5 +77,3 @@ document.getElementById('admin').onclick = openWindow;
 function openWindow () {
     window.open("./pollmake.html", 'vote', 'width = 400, height =350');
 }
-
-
