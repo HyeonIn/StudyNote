@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>직렬화(serialize)</title>
+    <script>
+      // JSON (JavaScript Object Notation)
+
+      // stringify(obj)
+      let flag = true;
+      console.log(flag, typeof flag);
+      let json = JSON.stringify(flag);
+      console.log(json, typeof json);
+
+      let areas = ["서울", "대전", "광주", "구미", "부울경"];
+      areas.forEach(function (area) {
+        console.log(area);
+      });
+      json = JSON.stringify(areas);
+      console.log(json);
+      // error
+      // json.forEach(function (area) {
+      //   console.log(area);
+      // });
+
+      const ssafy = {
+        number: "8",
+        color: "orange",
+        areas: areas,
+        start: new Date(2022, 6, 13),
+        study: function () {
+          console.log(`${this.number}기는 열공중!!!`);
+        },
+      };
+      ssafy.study();
+      json = JSON.stringify(ssafy);
+      console.log(json);
+
+      // 원하는 프로퍼티(property)만 문자열로.
+      json = JSON.stringify(ssafy, ["color"]);
+      console.log(json);
+
+      // callback 함수 이용
+      json = JSON.stringify(ssafy, (key, value) => {
+        console.log(`key: ${key}, value: ${value}`);
+        return key === "number" ? "8기" : value;
+      });
+      console.log(json);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ajax</title>
+    <style type="text/css">
+      .viewtime {
+        font-size: 30px;
+        color: magenta;
+      }
+    </style>
+    <script type="text/javascript" src="../js/httpRequest.js"></script>
+    <script type="text/javascript">
+      // client의 시간이 아닌 server의 시간보기.
+      function getTime() {
+        sendRequest("2-03currenttime.jsp", null, viewTime, "GET");
+      }
+
+      function viewTime() {
+        if (httpRequest.readyState == 4) {
+          if (httpRequest.status == 200) {
+            var time = httpRequest.responseText;
+            var div = document.getElementById("curtime");
+            div.setAttribute("class", "viewtime");
+            div.innerHTML = time;
+          }
+        }
+      }
+
+      window.onload = function () {
+        setInterval(getTime, 1000);
+      };
+    </script>
+  </head>
+  <body>
+    <h2>현재 시간</h2>
+    <button onclick="javascript:getTime();">시간보기</button>
+    <div id="curtime"></div>
+  </body>
+</html>

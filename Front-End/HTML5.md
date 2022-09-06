@@ -171,6 +171,32 @@ Element별로 사용가능한 Attribute가 다르다.
 
 - 주석은 웹 페이지에 나타나지 않는다. 주석을 보고 싶으면 웹 브라우저의 페이지 소스보기 등을 통해 확인 할 수 있다.
 
+### AJAX (Asynchronous JavaScript XML) 
+
+- 언어나 프레임워크가 아닌 구현하는 방식을 의미
+- 웹에서 화면을 갱신하지 않고 데이터를 서버로부터 가져와 처리하는 방법
+- 객체로 데이터를 전달하고 비동기 방식으로 결과를 조회
+- 화면 갱신이 없으므로 사용자 입장에서는 편리하지만 동적으로 DOM을 구성해야 하므로 구현이 복잡
+
+#### 서버와 클라이언트의 상호작용
+- 웹 화면을 구성하는 방식은 서버 중심의 상호작용 방식(SSR)과 클라이언트 중심의 상호작용 방식(CSR)으로 구분
+- 서버 중심의 개발방식은 화면 구성이 서버에서 이루어진다 (JSP, PHP, ASP)
+- 클라이언트 중심의 개발방식은 클라이언트에서 화면을 구성한다
+- AJAX는 클라이언트 중심의 개발방식이며 비동기 요청보다는 동적 화면구성이 관건임
+  - 서버에서는 화면 구성을 위한 데이터만 만들어준다
+
+#### AJAX 사용 방식
+
+```JavaScript
+var ajax = new XMLHttpRequest()
+ajax.onreadystatechange = function () {
+  if (this.readyState == 4){
+    console.log(ajax.responseText);
+    console.log(ajax.responseXML)
+  }
+}
+ajax.open("GET/POST", "호출 URL", true(동기/비동기));
+```
 ## CSS(Cascading Style Sheets)
 
 위에서 예시로 짧게 적용한 CSS는 효율적인 방법은 아니다.  

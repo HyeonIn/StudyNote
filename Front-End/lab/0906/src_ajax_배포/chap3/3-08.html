@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ajax</title>
+    <style type="text/css">
+      .viewtime {
+        font-size: 30px;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>현재 시간</h2>
+    <div id="curtime"></div>
+    <script>
+      function viewTime() {
+        fetch("../chap2/2-03currenttime.jsp")
+          .then((response) => response.text())
+          .then((text) => {
+            let div = document.querySelector("#curtime");
+            div.setAttribute("class", "viewtime");
+            div.innerHTML = text;
+          });
+      }
+
+      setInterval(viewTime, 1000);
+    </script>
+  </body>
+</html>

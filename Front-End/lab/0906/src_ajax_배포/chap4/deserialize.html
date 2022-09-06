@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>역직렬화(deserialize)</title>
+    <script>
+      // JSON (JavaScript Object Notation)
+
+      let areas = ["서울", "대전", "광주", "구미", "부울경"];
+      const ssafy = {
+        number: "8",
+        color: "orange",
+        areas: areas,
+        start: new Date(2022, 6, 13),
+        study: () => {
+          console.log(`${this.number}기는 열공중!!!`);
+        },
+      };
+
+      // parse()
+      let json = JSON.stringify(ssafy);
+      console.log(json, typeof json);
+      let obj = JSON.parse(json);
+      console.log(obj, typeof obj);
+
+      // callback 함수 이용.
+      obj = JSON.parse(json, (key, value) => {
+        console.log(`key: ${key}, value: ${value}`);
+        return key === "number" ? "8기" : value;
+      });
+
+      console.log(obj);
+      console.log(obj.number);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSV</title>
+    <style type="text/css">
+      table {
+        width: 300px;
+        height: 100px;
+      }
+      th,
+      td {
+        text-align: center;
+      }
+      .first-view-bg {
+        background-color: darkblue;
+      }
+      .first-view-color {
+        color: ivory;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>SSAFY 분반</h3>
+    <button id="listBtn">학생정보보기</button>
+    <table style="display: none">
+      <tr>
+        <th>학번</th>
+        <th>이름</th>
+        <th>분반</th>
+        <th>성적</th>
+      </tr>
+      <tbody id="studentinfo"></tbody>
+    </table>
+    <script>
+      let btn = document.querySelector("#listBtn");
+      btn.addEventListener("click", function () {
+        // TODO : 4-01csv.jsp 비동기 호출
+      });
+
+      function makeList(data) {
+        document.querySelector("table").setAttribute("style", "display: ;");
+        let tbody = document.querySelector("#studentinfo");
+        let students = data.split("\n");
+        initTable();
+        students.forEach((student) => {
+          let tr = document.createElement("tr");
+          let infos = student.split(",");
+          infos.forEach(function (info, i) {
+            let td = document.createElement("td");
+            td.appendChild(document.createTextNode(info));
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+        // document
+        //   .querySelector("tr:first-child")
+        //   .setAttribute("style", "background: black; color: white;");
+        let first = document.querySelector("tr:first-child");
+        first.className = "first-view-bg";
+        first.classList.add("first-view-color");
+        let odd = document.querySelectorAll("tr:nth-child(even)");
+        odd.forEach(function (td) {
+          td.setAttribute("style", "background: lightgray;");
+        });
+      }
+
+      function initTable() {
+        let tbody = document.querySelector("#studentinfo");
+        let len = tbody.rows.length;
+        for (let i = len - 1; i >= 0; i--) {
+          tbody.deleteRow(i);
+        }
+      }
+    </script>
+  </body>
+</html>

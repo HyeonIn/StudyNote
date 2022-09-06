@@ -1,0 +1,4 @@
+.accordion-body:hover {
+  background-color: powderblue;
+  cursor: pointer;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AJAX (POST)</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-4 offset-md-4 mb-3 mt-3">
+        <label for="userid" class="form-label">아이디:</label>
+        <input type="text" class="form-control" id="userid" placeholder="아이디입력..." />
+      </div>
+      <div class="col-md-4 offset-md-4 mb-3">
+        <label for="userpwd" class="form-label">비밀번호:</label>
+        <input type="password" class="form-control" id="userpwd" placeholder="비밀번호입력..." />
+      </div>
+      <div class="col-md-4 offset-md-4 mb-3">
+        <button type="button" id="sendBtn" class="btn btn-primary">전송</button>
+      </div>
+    </div>
+    <div class="col-md-4 offset-md-4 mb-3">
+      <div id="alert" class="alert alert-primary" style="display: none" role="alert"></div>
+    </div>
+    <script>
+      document.querySelector("#sendBtn").addEventListener("click", function () {
+        let user = {
+          userid: document.querySelector("#userid").value,
+          userpwd: document.querySelector("#userpwd").value,
+        };
+        console.log(user);
+
+        let config = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        };
+
+        fetch("3-09.jsp", config)
+          .then((response) => response.json())
+          .then((data) => resultView(data));
+      });
+
+      function resultView(data) {
+        let alert = document.querySelector("#alert");
+        alert.setAttribute("style", "display: ;");
+        if (!data.flag) {
+          alert.classList.replace("alert-primary", "alert-danger");
+        } else {
+          alert.classList.replace("alert-danger", "alert-primary");
+        }
+        alert.textContent = data.msg;
+      }
+    </script>
+  </body>
+</html>

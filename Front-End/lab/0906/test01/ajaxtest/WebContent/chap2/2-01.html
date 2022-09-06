@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+	<script type="text/javascript">
+	var httpRequest = null;
+	
+	function getXMLHttpRequest(){
+		if(window.ActiveXObject){ // MS IE
+			try{
+				return new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e1){
+				try{
+					return new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e2){
+					return null;
+				}
+			}
+		}else if(window.XMLHttpRequest){ // 기타 웹 브라우저
+			return new XMLHttpRequest();
+		}else{
+			return null;
+		}
+	}
+	
+	function sendRequest(url, params, callback, method){
+		httpRequest = getXMLHttpRequest();
+		
+		var httpMethod = method ? method : 'GET';
+		if(httpMethod != 'GET' && httpMethod != 'POST'){
+			httpMethod = 'GET';
+		}
+		
+		var httpParams = (params == null || params == '') ? null : params;
+		var httpUrl = url;
+		if(httpMethod == 'GET' && httpParams != null){
+			httpUrl = httpUrl + "?" + httpParams;
+		}
+		
+		// open() : 요청의 초기화, GET/POST 선택, 접속할 URL 입력
+		httpRequest.open(httpMethod, httpUrl, true);
+		httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		httpRequest.onreadystatechange = callback; // callback 함수 등록
+		// send() : web server에 요청 전송.
+		httpRequest.send(httpMethod == 'POST' ? httpParams : null);
+	}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

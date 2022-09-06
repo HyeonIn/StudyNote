@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>XML</title>
+    <style type="text/css">
+      table {
+        width: 300px;
+        height: 100px;
+      }
+      th,
+      td {
+        text-align: center;
+      }
+      .first-view-bg {
+        background-color: darkgreen;
+      }
+      .first-view-color {
+        color: ivory;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>SSAFY 분반</h3>
+    <button id="listBtn">학생정보보기</button>
+    <table style="display: none">
+      <tr>
+        <th>학번</th>
+        <th>이름</th>
+        <th>분반</th>
+        <th>성적</th>
+      </tr>
+      <tbody id="studentinfo"></tbody>
+    </table>
+    <script>
+      let btn = document.querySelector("#listBtn");
+      btn.addEventListener("click", function () {
+        // TODO : 4-02.xml 비동기 호출
+      });
+
+      function makeList(data) {
+        document.querySelector("table").setAttribute("style", "display: ;");
+        let tbody = document.querySelector("#studentinfo");
+        let parser = new DOMParser();
+        const xml = parser.parseFromString(data, "application/xml");
+        // console.log(xml);
+        initTable();
+        let students = xml.querySelectorAll("student");
+        students.forEach((student) => {
+          let tr = document.createElement("tr");
+
+          let idTd = document.createElement("td");
+          idTd.appendChild(document.createTextNode(student.querySelector("id").textContent));
+          tr.appendChild(idTd);
+
+          let nameTd = document.createElement("td");
+          nameTd.appendChild(document.createTextNode(student.querySelector("name").textContent));
+          tr.appendChild(nameTd);
+
+          let classTd = document.createElement("td");
+          classTd.appendChild(document.createTextNode(student.querySelector("class").textContent));
+          tr.appendChild(classTd);
+
+          let gradeTd = document.createElement("td");
+          gradeTd.appendChild(document.createTextNode(student.querySelector("grade").textContent));
+          tr.appendChild(gradeTd);
+
+          tbody.appendChild(tr);
+        });
+        let first = document.querySelector("tr:first-child");
+        first.className = "first-view-bg";
+        first.classList.add("first-view-color");
+        let odd = document.querySelectorAll("tr:nth-child(even)");
+        odd.forEach(function (td) {
+          td.setAttribute("style", "background: lightgray;");
+        });
+      }
+
+      function initTable() {
+        let tbody = document.querySelector("#studentinfo");
+        let len = tbody.rows.length;
+        for (let i = len - 1; i >= 0; i--) {
+          tbody.deleteRow(i);
+        }
+      }
+    </script>
+  </body>
+</html>
