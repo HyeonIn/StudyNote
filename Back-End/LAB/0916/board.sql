@@ -27,10 +27,12 @@ values('N번째 글','현인', 'N 번째 글입니다', now());
 
 select bno, title, writer, content, write_date, read_count from board_tb where bno=1;
 
-select count(*) from board_tb;
+select * from board_tb;
 
 update board_tb set read_count = read_count+1
 where bno = 1;
+
+delete from board_tb where bno=1;
 
 select bno, title, writer, write_date, read_count
 from board_tb order by bno desc limit 1, 3; -- limit 의 시작지점은 0번 인덱스
