@@ -72,7 +72,7 @@ Object getAttribute(String name)
 
 
 
-<< 10/4 (화요일) 백엔드 과목평가 준비
+
 1.서블릿 url 맵핑 방법, Web.xml url 매핑
 2.HttpServlet 라이프 사이클
 3.서블릿 관련 객체, 주요 메서드
