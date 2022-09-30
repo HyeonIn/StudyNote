@@ -62,3 +62,28 @@ Object getAttribute(String name)
 #### View
 
 #### Controller
+
+	
+김지환[대전_5반]
+오후 5:05
+
+
+
+
+
+
+<< 10/4 (화요일) 백엔드 과목평가 준비
+1.서블릿 url 맵핑 방법, Web.xml url 매핑
+2.HttpServlet 라이프 사이클
+3.서블릿 관련 객체, 주요 메서드
+(HttpServlet, GenericServlet, HttpServletRequest/Response, HttpSession, ServletContext), getAttribute(), setAttribute() ..
+3.페이지 이동 관련 객체 및 메소드
+4.클라이언트 요청방식, 서블릿에서의 처리방법, 에러 응답 코드
+5.JSP 구성요소별 기능 및 사용법
+6.JSP구문 EL로 변환하기, EL 연산자(empty)
+7.JSTL tag들
+8.Scope 관련 객체들
+9.예외처리방법
+10.쿠키 개념, 특징, 설정,전송
+11.세션 개념, 특징, 객체 타입, 메소드
+12.MVC 패턴 이해 및 각 역할의 이해
