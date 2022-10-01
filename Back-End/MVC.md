@@ -73,12 +73,13 @@ Object getAttribute(String name)
 
 
 
-1.서블릿 url 맵핑 방법, Web.xml url 매핑
-2.HttpServlet 라이프 사이클
-3.서블릿 관련 객체, 주요 메서드
+1.서블릿 url 맵핑 방법, Web.xml url 매핑 V
+2.HttpServlet 라이프 사이클 V
+3.서블릿 관련 객체, 주요 메서드 V
 (HttpServlet, GenericServlet, HttpServletRequest/Response, HttpSession, ServletContext), getAttribute(), setAttribute() ..
-3.페이지 이동 관련 객체 및 메소드
-4.클라이언트 요청방식, 서블릿에서의 처리방법, 에러 응답 코드
+3.페이지 이동 관련 객체 및 메소드 V
+4.클라이언트 요청방식, 서블릿에서의 처리방법, 에러 응답 코드 V
+
 5.JSP 구성요소별 기능 및 사용법
 6.JSP구문 EL로 변환하기, EL 연산자(empty)
 7.JSTL tag들
