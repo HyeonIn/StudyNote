@@ -14,6 +14,8 @@
     - DTO(Data Transfer Object), VO(Value Object)
       - 일반적으로 데이터베이스 내 테이블 단위
     - 테이블 데이터가 아니라면 Map을 활용
+    - java beans 설명 글
+      - https://m.blog.naver.com/javaking75/140181706815
 
 ##### Model1 구조의 장단점
 |장점|단점|

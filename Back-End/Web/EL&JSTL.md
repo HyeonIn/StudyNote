@@ -149,10 +149,10 @@ directive 선언 형식 : <%@ taglib prefix="prefix" uri="uri" %>
     - jsp 페이지에서 사용 할 변수 설정
     ```JSP
       <!-- value 속성을 이용하여 변수 값 할당 -->
-      <c:set value="value" var="varName" [scope="{page(default|request|session|application}"] />
+      <c:set value="value" var="varName" [scope="{page(default)|request|session|application}"] />
 
       <!-- 액션의 body content를 사용하여 변수 값 할당 -->
-      <c:set var="varName" [scope="{page(default|request|session|application}"]>
+      <c:set var="varName" [scope="{page(default)|request|session|application}"]>
         body content
       </c:set>
 
@@ -200,13 +200,13 @@ directive 선언 형식 : <%@ taglib prefix="prefix" uri="uri" %>
     - 예외 처리에 사용
     - JSP에서 예외가 발생할 만한 코드를 오류 페이지로 넘기지 않고 직접 처리할 때 사용
     - catch와 if 액션을 함께 사용하여 try-catch 구조를 구현할 수 있음
-```JSP
+    ```JSP
 
-<c:catch var="ex">
-  예외가 생길 수 있는 코드
-</c:catch>
+    <c:catch var="ex">
+      예외가 생길 수 있는 코드
+    </c:catch>
 
-<c:if test="${ex != null}">
-  예외가 발생하였습니다. ${ex.message}
-</c:if>
-```
+    <c:if test="${ex != null}">
+      예외가 발생하였습니다. ${ex.message}
+    </c:if>
+    ```
