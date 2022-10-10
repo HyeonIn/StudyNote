@@ -28,7 +28,9 @@ end BFS()
 ```
 DFS(v)
     v 방문
+
     for(v의 모든 자식노드 w){
-        DFS(w)
+        if 방문하지 않은 곳일때
+            DFS(w)
     }
 end DFS()
