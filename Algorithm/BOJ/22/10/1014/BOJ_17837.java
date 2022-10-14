@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
@@ -63,12 +64,6 @@ public class Main {
 			ps[i+1] = tmp;
 		}
     	
-    	for (int i = 0; i < N; i++) {			
-			for (int j = 0; j < N; j++) {
-				System.out.print(board[i][j]);
-			}
-			System.out.println();
-		}
     	int turn = 1;
     	while (turn <= 1000) {
     		for (int k = 1; k <= K; k++) {
@@ -78,10 +73,23 @@ public class Main {
     			int nj = ps[k].j + dj[ps[k].dir];
     			if (ni < 0 || nj < 0 || ni >= N || nj >= N) {
 					change(ps[k]);
-					if (map[ps[k].i][ps[k].j] == 1) {
-						reverse(ps[k]);
+					ni = tempi + di[ps[k].dir];
+    				nj = tempj + dj[ps[k].dir];
+    				if (map[ni][nj] == 2) {
+						continue;
 					}
-					continue;
+    				else if (map[ni][nj] == 1) {
+    					move(ps[k], ni, nj);
+    					check(ni, nj);
+						reverse(ps[k]);
+						remove(ps[k], tempi, tempj);
+					}
+    				else {
+    					move(ps[k], ni, nj);
+    					check(ni, nj);
+        				remove(ps[k], tempi, tempj);
+    				}
+    				continue;
 				}
     			if (map[ni][nj] == 0) {
 					move(ps[k], ni, nj);
@@ -100,7 +108,6 @@ public class Main {
     				change(ps[k]);
     				ni = tempi + di[ps[k].dir];
     				nj = tempj + dj[ps[k].dir];
-    				System.out.println(ni + "  " + nj);
     				if (ni < 0 || nj < 0 || ni >= N || nj >= N) {
     					continue;
     				}
@@ -121,13 +128,7 @@ public class Main {
     			}
     			
     		}
-    		System.out.println();
-    		for (int i = 0; i < N; i++) {			
-    			for (int j = 0; j < N; j++) {
-    				System.out.print(board[i][j]);
-    			}
-    			System.out.println();
-    		}
+    		
     		if (answer) {
 				break;
 			}
@@ -168,7 +169,6 @@ public class Main {
 		}
     }
     public static void move(piece p, int ni, int nj) {
-    	
 		boolean find = false;
 		for (piece tmp : board[p.i][p.j]) {
 			if (tmp.n == p.n) {
