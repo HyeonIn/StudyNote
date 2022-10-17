@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/ssafyweb?serverTimezone=UTC&amp;useUniCode=yes&amp;characterEncoding=UTF-8"/>
+		<property name="username" value="ssafy"/>
+		<property name="password" value="ssafy"/>
+	</bean>
+	
+	<bean id="dbUtil" class="com.ssafy.util.DBUtil"/>
+	
+	<bean id="boardDao" class="com.ssafy.board.model.dao.BoardDaoImpl">
+		<constructor-arg ref="dataSource"/>
+		<constructor-arg ref="dbUtil"/>
+	</bean>
+	
+	<bean id="boardService" class="com.ssafy.board.model.service.BoardServiceImpl">
+		<constructor-arg ref="boardDao"/>
+	</bean>
+
+</beans>
