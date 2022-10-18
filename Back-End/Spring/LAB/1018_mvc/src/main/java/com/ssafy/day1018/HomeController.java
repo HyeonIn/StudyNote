@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller //DispatcherServlet의 부하임
@@ -30,7 +31,7 @@ public class HomeController {
 		return "home";
 	}
 	@RequestMapping(value = "/bye", method= RequestMethod.GET)
-	public ModelAndView byebye(String name, int age) {
+	public ModelAndView byebye(String name, @RequestParam(defaultValue = "1")int age) {
 		System.out.println("~~~/1018_mvc/bye 라는 요청이 도착했네요");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("bbb");
