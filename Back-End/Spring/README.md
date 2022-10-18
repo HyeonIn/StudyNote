@@ -49,8 +49,77 @@ A라는 클래스와 B라는 클래스가 있을 때, A라는 클래스가 B에 
    - 예를 들어 데이터베이스에 관계없이 동일하게 적용 할 수 있는 트랜잭션 처리방식 
 3. IoC/DI
    - DI 는 유연하게 확장 가능한 객체를 만들어 두고 객체 간의 의존관계는 외부에서 다이나믹하게 설정
-4. AOP
+4. AOP(Aspect Oriented Programming)
    - 관심사의 분리를 통해서 소프트웨어의 모듈성을 향상
    - 공통 모듈을 여러 코드에 쉽게 적용가능
 
-2시간 10분 부터 다시 보기
+### Spring Framework의 특징
+
+- 경량 컨테이너
+  - 스프링은 자바객체를 담고 있는 컨테이너이다
+  - 스프링 컨테이너는 이들 자바 객체의 생성과 소멸과 같은 라이플 사이클을 관리
+  - 언제든지 스프링 컨테이너로부터 필요한 객체를 가져와 사용할 수 있다
+- DI(Dependency Injection - 의존성 지원) 패턴 지원
+  - 스프링은 설정 파일이나, 어노테이션을 통해서 객체 간의 의존 관계를 설정할 수 있다.
+  - 따라서, 객체는 의존하고 있는 객체를 직접 생성하거나 검색할 필요가 없다
+
+### Spring Framework Module
+
+프레임 워크는 레고다
+
+- 코어와 bean Factory를 밑바탕으로 
+- AOP, ORM, DAO 등등 필요한 것들을 레고 블럭처럼 쌓아서 사용
+
+### IoC(Inversion of Control, 제어의 역행) 
+
+- IoC/DI
+- 객체 지향 언어에서 Object간의 연결 관계를 런타임에 결정
+- 객체 간의 관계가 느슨하게 연결됨
+- IoC의 구현 방법 중 하나가 DI
+
+### IoC 유형
+
+- DI
+  - Object에 lookup 코드를 사용하지 않고 컨테이너가 직접 의존 구조를 Object에 설정 할 수 있도록 지정해 주는 방식
+  - Object가 컨테이너의 존재 여부를 알 필요가 없음
+  - Lookup 관련된 코드들이 Object내에서 사라짐
+  - Setter Injection과 Constructor Inject
+  - 사용방법
+    - setter
+    - 생성자
+      - 생성자를 이용하는 것이 권장 사항
+    - 메소드
+- DL
+  - 컨테이너가 lookup context를 통해서 필요한 Resource나 Ojbect를 얻는 방식
+  - JNDI 이외의 방법을 사용한다면 JNDL 관련 코드를 오브젝트 내에서 일일히 변경해 주어야 함
+  - Lookup 한 Object를 필요한 타입으로 Casting 해 주어야 함
+  - Naming Exception을 처리하기 위한 로직이 필요
+  - 사용 방법
+    - JNDI Lookup
+      - MVC Connection Pooling 에서 사용
+
+- 객체간 강한 결합
+  - 클래스 호출 방식
+  - 클래스내에 선언과 구현이 모두 되어있기 때문에 다양한 형태로 변화가 불가능
+
+- 객체간의 강향 결합을 다형성을 통해 낮춤
+- 객체간의 강한 결합을 Factory를 통해 결합도를 낮춤
+- 객체 간의 강한 결합을 Assembler를 통해 결합도를 낮춤
+  - Assembler == Spring
+### Container
+
+- 컨테이너란?
+  - 객체의 생성, 사용, 소멸에 해당하는 라이프사이클을 담당
+  - 라이프사이클을 기본으로 어플리케이션 사용에 필요한 주요 기능을 제공
+- 기능
+  - 라이플 사이클 관리
+  - Depnedency 객체 제공
+  - 스레드 관리
+  - 기타 어플리케이션 실행에 필요한 환경
+- 필요성
+  - 비즈니스 로직 외에 부가적인 기능들에 대해서는 독립적으로 관리되도록 하기 위함
+  - 서비스 lookup 이나 Configuration에 대한 일관성을 갖기 위함
+  - 서비스 객체를 사용하기 위해 각각 Factory 또는 Singleton 패턴을 직접 구현하지 않아도 됨
+- 스프링에서 IoC 를 담당하는 컨테이너에는 BeanFactory ApplicationContext가 있음
+
+### 

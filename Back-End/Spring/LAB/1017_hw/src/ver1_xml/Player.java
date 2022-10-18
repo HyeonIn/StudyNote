@@ -18,7 +18,7 @@ public class Player {
 	}
 	
 	public void shoot() {
-		System.out.println(this.name + " ¼±¼ö°¡ ¼±ÃëÁ¡À» ±â·ÏÇÕ´Ï´Ù!!");
-		System.out.println("±×ÀÇ Æ®·¹ÀÌµå ¸¶Å© " + this.color +"»ö " + this.shoes.getShoes()+" Ãà±¸È­°¡ ºû³ª³×¿ä!");
+		System.out.println(this.name + " ì„ ìˆ˜ê°€ ë“ì ì— ì„±ê³µí•©ë‹ˆë‹¤!!");
+		System.out.println("ì‹œê·¸ë‹ˆì²˜ì¸ " + this.color +"ìƒ‰ " + this.shoes.getShoes()+" ì¶•êµ¬í™”ê°€ ë¹›ë‚©ë‹ˆë‹¤!");
 	}
 }

@@ -4,6 +4,6 @@ public class AdidasShoes implements Shoes{
 	@Override
 	public String getShoes() {
 		// TODO Auto-generated method stub
-		return "�Ƶ�ٽ�";
+		return "아디다스";
 	}
 }
