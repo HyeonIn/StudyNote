@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+		<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+		<bean class="com.ssafy.hw.UserAspect" id="userAspect"></bean>
+		<bean class="com.ssafy.hw.GeneralUser" id="generalUser"></bean>
+		<bean class="com.ssafy.hw.AdminUser" id="adminUser"></bean>
+		<aop:config>
+			<aop:pointcut expression="execution(void useApp())" id="mypt"/>
+			<aop:aspect ref="userAspect">
+				<aop:before method="before" pointcut-ref="mypt"/>
+				<aop:after-returning method="afterReturn" pointcut-ref="mypt"/>
+				<aop:after-throwing method="afterThrow" pointcut-ref="mypt"/>
+				<aop:after method="after" pointcut-ref="mypt"/>
+			</aop:aspect>
+		</aop:config>
+</beans>

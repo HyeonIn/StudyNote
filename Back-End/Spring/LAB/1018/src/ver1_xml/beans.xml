@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="Son" class="ver1_xml.Player" destroy-method="bbb">
+		<property name="shoes" ref="adidas"/>
+		<property name="color" value="연두"/>
+		<property name="name" value="손흥민"/>
+	</bean>
+	
+	<bean id="adidas" class="ver1_xml.AdidasShoes"></bean>
+</beans>

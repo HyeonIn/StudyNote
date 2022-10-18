@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="hyungu" class="ver3_aop_arround.Boy"/>
+	<bean id="jamin" class="ver3_aop_arround.Girl"/>
+	<bean id="common" class="ver3_aop_arround.CommonAspect"/>
+	
+	<aop:config>
+		<aop:aspect ref="common">
+			<aop:pointcut expression="execution(void makeFood())" id="ttt"/>
+			<aop:around method="aaround" pointcut-ref="ttt"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
