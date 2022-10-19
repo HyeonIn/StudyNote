@@ -19,6 +19,7 @@ A라는 클래스와 B라는 클래스가 있을 때, A라는 클래스가 B에 
     - Plain : component interface를 상속받지 않는 특징
     - Old : EJB 이전의 java class를 의미
 - 경량 프레임 워크
+
   - EJB가 제공하는 서비스를 지원해 줄 수 있는 프레임워크 등장
   - Hibernate(JPA), JDO, IBatis(MyBatis), Spring
 
@@ -39,14 +40,16 @@ A라는 클래스와 B라는 클래스가 있을 때, A라는 클래스가 B에 
 ## Spring Framework의 구조
 
 ### Spring 삼각형
+
 엔터프라이즈 어플리케이션 개발 시 복잡함을 해결하는 스프링의 핵심
+
 1. POJO
    - 특정 환경이나 기술에 종속적이지 않은 객체지향 원리에 충실한 자바 객체
    - 테스트하기 용이하며, 객체지향 설계를 자유롭게 적용할 수 있다
 2. PSA(Portable Service Abstraction)
    - 환경과 세부기술의 변경과 관계없이 일관된 방식으로 기술에 접근할 수 있게 해주는 설계 원칙
    - 트랜잭션 추상화, OXM 추상화, 데이터 엑세스의 Exception 변환기능.. 등 기술적인 복잡함은 추상화를 통해 low level의 기술 구현 부분과 기술을 사용하는 인터페이스로 분리
-   - 예를 들어 데이터베이스에 관계없이 동일하게 적용 할 수 있는 트랜잭션 처리방식 
+   - 예를 들어 데이터베이스에 관계없이 동일하게 적용 할 수 있는 트랜잭션 처리방식
 3. IoC/DI
    - DI 는 유연하게 확장 가능한 객체를 만들어 두고 객체 간의 의존관계는 외부에서 다이나믹하게 설정
 4. AOP(Aspect Oriented Programming)
@@ -67,10 +70,10 @@ A라는 클래스와 B라는 클래스가 있을 때, A라는 클래스가 B에 
 
 프레임 워크는 레고다
 
-- 코어와 bean Factory를 밑바탕으로 
+- 코어와 bean Factory를 밑바탕으로
 - AOP, ORM, DAO 등등 필요한 것들을 레고 블럭처럼 쌓아서 사용
 
-### IoC(Inversion of Control, 제어의 역행) 
+### IoC(Inversion of Control, 제어의 역행)
 
 - IoC/DI
 - 객체 지향 언어에서 Object간의 연결 관계를 런타임에 결정
@@ -90,6 +93,7 @@ A라는 클래스와 B라는 클래스가 있을 때, A라는 클래스가 B에 
       - 생성자를 이용하는 것이 권장 사항
     - 메소드
 - DL
+
   - 컨테이너가 lookup context를 통해서 필요한 Resource나 Ojbect를 얻는 방식
   - JNDI 이외의 방법을 사용한다면 JNDL 관련 코드를 오브젝트 내에서 일일히 변경해 주어야 함
   - Lookup 한 Object를 필요한 타입으로 Casting 해 주어야 함
@@ -99,6 +103,7 @@ A라는 클래스와 B라는 클래스가 있을 때, A라는 클래스가 B에 
       - MVC Connection Pooling 에서 사용
 
 - 객체간 강한 결합
+
   - 클래스 호출 방식
   - 클래스내에 선언과 구현이 모두 되어있기 때문에 다양한 형태로 변화가 불가능
 
@@ -106,6 +111,7 @@ A라는 클래스와 B라는 클래스가 있을 때, A라는 클래스가 B에 
 - 객체간의 강한 결합을 Factory를 통해 결합도를 낮춤
 - 객체 간의 강한 결합을 Assembler를 통해 결합도를 낮춤
   - Assembler == Spring
+
 ### Container
 
 - 컨테이너란?
@@ -122,4 +128,21 @@ A라는 클래스와 B라는 클래스가 있을 때, A라는 클래스가 B에 
   - 서비스 객체를 사용하기 위해 각각 Factory 또는 Singleton 패턴을 직접 구현하지 않아도 됨
 - 스프링에서 IoC 를 담당하는 컨테이너에는 BeanFactory ApplicationContext가 있음
 
-### 
+### Spring 프로젝트 생성
+
+- 인코딩 설정 확인
+- Spring Legacy Project
+  - MVC
+    - pom.xml 수정
+    - maven update
+
+root-context.xml
+
+- 모델 관련
+  servlet-context.xml
+- 컨트롤러, 뷰리졸버 등등
+
+aop로 예외처리 가능
+
+- @ControllerAdvice
+  - @ExceptionHandler
