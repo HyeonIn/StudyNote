@@ -139,10 +139,20 @@ A라는 클래스와 B라는 클래스가 있을 때, A라는 클래스가 B에 
 root-context.xml
 
 - 모델 관련
-  servlet-context.xml
+
+servlet-context.xml
+
 - 컨트롤러, 뷰리졸버 등등
 
 aop로 예외처리 가능
 
 - @ControllerAdvice
   - @ExceptionHandler
+
+MyBatis
+
+- DTO에
+- insert, update, delete
+  - result 타입을 명시하지 않아도 상관없음
+  - 무조건 결과가 int기 때문
+    DAO(Data Access Object)
