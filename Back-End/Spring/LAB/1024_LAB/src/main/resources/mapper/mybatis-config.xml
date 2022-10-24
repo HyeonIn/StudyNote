@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<properties resource="mapper/dbinfo.properties"/>
+
+	<typeAliases>
+		<typeAlias type="com.ssafy.board.model.BoardDto" alias="boardDto" />
+		<typeAlias type="com.ssafy.board.model.FileInfoDto" alias="fileInfoDto" />
+		<typeAlias type="com.ssafy.member.model.MemberDto" alias="memberDto" />
+	</typeAliases>
+	
+	<environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${dbid}"/>
+                <property name="password" value="${dbpwd}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <!--<environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="JNDI">
+                <property value="java:comp/env/jdbc/ssafy" name="data_source"/>
+            </dataSource>
+        </environment>
+    </environments>-->
+    
+    <mappers>
+		<mapper resource="mapper/member.xml" />
+		<mapper resource="mapper/board.xml" />
+	</mappers>
+	
+</configuration>
