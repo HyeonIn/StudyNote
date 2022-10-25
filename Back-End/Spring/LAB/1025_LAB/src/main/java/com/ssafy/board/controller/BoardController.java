@@ -1,10 +1,10 @@
 package com.ssafy.board.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;
-import javax.swing.plaf.multi.MultiFileChooserUI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ssafy.board.model.dto.BoardDto;
+import com.ssafy.board.model.dto.FileDto;
 import com.ssafy.board.model.dto.MemberDto;
 import com.ssafy.board.model.service.BoardService;
 import com.ssafy.board.model.service.CommentService;
@@ -41,17 +42,36 @@ public class BoardController {
 		return "write";
 	}
 	@PostMapping("/write")
-	public String write(BoardDto board, MultipartFile[] uploadFile, HttpSession session) {
+	public String write(BoardDto board, MultipartFile[] uploadFile, HttpSession session) throws IllegalStateException, IOException {
 		MemberDto loginInfo = (MemberDto) session.getAttribute("loginInfo");
 		board.setWriter(loginInfo.getName());
 		
-		if (boardService.write(board)) {
+		boolean writeResult = boardService.write(board);
+		if (uploadFile!= null && uploadFile.length > 0) {
+			String uploadPath = "c:/SSAFY/upload";
+			File uploadDir = new File(uploadPath);
+			if (!uploadDir.exists()) {
+				uploadDir.mkdir();
+			}
+			
+			for (MultipartFile file : uploadFile) {
+				String savedName = new Random().nextInt(100000000)+""; 
+				File savedFile = new File(uploadPath+"/"+savedName);
+				file.transferTo(savedFile);
+				
+				FileDto Dto = new FileDto(board.getBno(), file.getOriginalFilename(), savedFile.getAbsolutePath());
+				boardService.uploadFile(Dto);
+				System.out.println(Dto);
+			}
+			
+		}
+		
+		
+		if (writeResult) {
 			return "WriteSuccess";
 		}else {
 			return "WriteFail";
 		}
-		
-		
 	}
 	
 	@GetMapping("/read")
@@ -64,7 +84,7 @@ public class BoardController {
 			mv.setViewName("Result");
 			return mv;
 		}
-		
+		mv.addObject("uploadedFiles", boardService.selectFile(bno));
 		mv.addObject("board", board);
 		mv.setViewName("Read");
 		return mv;
@@ -74,7 +94,6 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView();
 		MemberDto loginInfo = (MemberDto) session.getAttribute("loginInfo");
 		BoardDto board = boardService.read(bno, loginInfo, true);
-		System.out.println(loginInfo.getName() + "   " + board.getWriter());
 		if (!loginInfo.getName().equals(board.getWriter())) {
 			mv.addObject("msg", "수정이 불가한 글입니다.");
 			mv.setViewName("Result");
@@ -112,5 +131,4 @@ public class BoardController {
 		}
 				
 	}
-	
 }

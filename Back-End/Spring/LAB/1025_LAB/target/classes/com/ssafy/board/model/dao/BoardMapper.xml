@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.board.model.dao.BoardMapper">
+	<insert id="insert" parameterType="BoardDto" useGeneratedKeys="true" keyProperty="bno" keyColumn="BNO">
+		INSERT INTO BOARD_TB(TITLE,WRITER,CONTENT,WRITE_DATE)
+		VALUES(#{title},#{writer},#{content},now())
+	</insert>
+	
+	<update id="updateReadCount" parameterType="int">
+		UPDATE BOARD_TB SET 
+		READ_COUNT = READ_COUNT+1
+		WHERE BNO=#{bno}
+	</update>
+	
+	<update id="update" parameterType="BoardDto">
+		UPDATE BOARD_TB 
+		SET TITLE = #{title}, CONTENT = #{content}, WRITE_DATE=now()
+		WHERE BNO=#{bno}
+	</update>
+	
+	
+	<select id="selectList" resultMap="resultBoard">
+		SELECT BNO, TITLE, WRITER, WRITE_DATE, READ_COUNT
+		FROM BOARD_TB
+		ORDER BY BNO DESC
+		LIMIT #{start}, #{cnt}
+	</select>
+	
+	<select id="selectTotalCount" resultType="int">
+		SELECT COUNT(*)
+		FROM BOARD_TB
+	</select>
+	
+	<select id="selectOne" parameterType="int" resultMap="resultBoard">
+		SELECT BNO, TITLE, WRITER, CONTENT, WRITE_DATE, READ_COUNT
+		FROM BOARD_TB
+		WHERE BNO=#{bno}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM BOARD_TB WHERE BNO=#{bno}
+	</delete>
+	<!-- SQL 문장 미리 만들기 -->
+	<!-- include 해서 사용할 수 있음 -->
+	<sql id="selectBoard">
+		BNO, TITLE, WRITER, WRITE_DATE as 'writeDate', READ_COUNT as 'readCount'
+	</sql>
+
+	<!-- resultMap 이용 -->
+	<resultMap type="BoardDto" id="resultBoard">
+		<result column="WRITE_COUNT" property="writeDate"/>
+		<result column="READ_COUNT" property="readCount"/>
+	</resultMap>
+</mapper>

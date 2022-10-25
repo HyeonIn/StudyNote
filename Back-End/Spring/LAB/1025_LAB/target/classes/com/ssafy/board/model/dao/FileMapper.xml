@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.board.model.dao.FileMapper">
+	<insert id="insert" parameterType="FileDto">
+		 INSERT INTO FILE_TB(BNO, ORIGINAL_NAME, SAVED_PATH)
+		 VALUES(#{bno}, #{originalName}, #{savedPath})
+	</insert>
+	
+	<select id="selectFiles" resultType="FileDto">
+		SELECT FNO, BNO, ORIGINAL_NAME AS 'originalName'
+		FROM FILE_TB
+		WHERE BNO = #{bno}
+	</select>
+	
+	<select id="selectOne" resultType="FileDto">
+		SELECT FNO, BNO, ORIGINAL_NAME AS 'originalName', SAVED_PATH AS 'savedPath' 
+		FROM FILE_TB 
+		WHERE FNO = #{fno}
+	</select>
+</mapper>
