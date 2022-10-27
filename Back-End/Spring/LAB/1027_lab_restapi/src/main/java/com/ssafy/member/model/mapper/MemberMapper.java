@@ -15,5 +15,8 @@ public interface MemberMapper {
 	void joinMember(MemberDto memberDto) throws SQLException;
 	MemberDto loginMember(Map<String, String> map) throws SQLException;
 	List<MemberDto> listMember(Map<String, Object> map) throws SQLException;
+	void deleteMember(String userId) throws SQLException;
+	MemberDto getMember(String userId) throws SQLException;
+	void modify(MemberDto memberDto) throws SQLException;
 	
 }

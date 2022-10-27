@@ -176,7 +176,118 @@
   <script>
     let root = "/board";
 
-    fetch(`${root}/admin/user`).then((response) => response.json()).then((data) => console.log(data));
+    fetch(`${root}/admin/user`)
+    .then((response) => response.json())
+    .then((data) => makeList(data));
+    
+    function viewModify(element){
+    	let id = element.parentNode.parentNode.getAttribute("data-id");
+    	document.querySelector(`#view_${id}`).setAttribute("style", "display:none");
+    	document.querySelector(`#mview_${id}`).setAttribute("style", "display:");
+    }
+    
+    function closeModify(element){
+    	let id = element.parentNode.parentNode.getAttribute("data-id");
+    	document.querySelector(`#view_${id}`).setAttribute("style", "display:");
+    	document.querySelector(`#mview_${id}`).setAttribute("style", "display: none");
+    }
+    function deleteUser(element){
+    	let id = element.parentNode.parentNode.getAttribute("data-id");
+    	let config = {
+    			method : "DELETE",
+    	};
+    	fetch(`${root}/admin/user/${id}`, config)
+    	.then((response) => response.json())
+    	.then((data) => makeList(data));
+    }
+    function userModify(element){
+    	let id = element.parentNode.parentNode.getAttribute("data-id");
+    	let pwd = document.querySelector(`#userpwd${id}`).value;
+    	
+    	let email = document.querySelector(`#email${id}`).value.split("@");
+   
+    	let modifyInfo = {
+        		userId : id,
+        		userPwd : pwd,
+        		emailId: email[0],
+        		emailDomain : email[1],
+        	};
+       	let config = {
+       			method : "PUT",
+       			headers : {"Content-Type" : "application/json"},
+       			body : JSON.stringify(modifyInfo),
+       	};
+       	fetch(`${root}/admin/user`, config)
+        .then((response) => response.json())
+        .then((data) => makeList(data));
+    }
+    //회원 상세 정보
+    function userView(element){
+    	var modal = new bootstrap.Modal(document.getElementById("userViewModal"), {
+    		backdrop: true,
+    		keyboard: false,
+    	});
+    	let id = element.getAttribute("data-id");
+    	fetch(`${root}/admin/user/${id}`)
+    	.then((response) => response.json())
+    	.then((data) => {
+    		document.querySelector("#vid").innerText = data.userId;
+    		document.querySelector("#vname").innerText = data.userName;
+    		document.querySelector("#vemail").innerText = data.emailId + "@" + data.emailDomain;
+    		document.querySelector("#vjoindate").innerText = data.joinDate;
+    		modal.show();
+    	});
+    }
+	
+    document.getElementById("btn-join").addEventListener("click", function(){
+    	let registerInfo = {
+    		userId : document.querySelector("#userid").value,
+    		userName : document.querySelector("#username").value,
+    		userPwd : document.querySelector("#userpwd").value,
+    		emailId: document.querySelector("#emailid").value,
+    		emailDomain : document.querySelector("#emaildomain").value,
+    	};
+    	let config = {
+    			method : "POST",
+    			headers : {"Content-Type" : "application/json"},
+    			body : JSON.stringify(registerInfo),
+    	};
+    	fetch(`${root}/admin/user`, config)
+        .then((response) => response.json())
+        .then((data) => makeList(data)); 		   	
+    });
+    
+    function makeList(users) {
+        let tbody = ``;
+        users.forEach(function (user) {
+          tbody += `
+						<tr id="view_${user.userId}" class="view text-center" data-id="${user.userId}" ondblclick="userView(this);">
+							<td>${user.userId}</td>
+							<td>${user.userPwd}</td>
+							<td>${user.userName}</td>
+							<td>${user.emailId}@${user.emailDomain}</td>
+							<td>${user.joinDate}</td>
+							<td>
+								<button type="button" class="modifyViewBtn btn btn-outline-primary btn-sm" onclick="viewModify(this)">수정</button>
+								<button type="button" class="deleteBtn btn btn-outline-danger btn-sm" onclick="deleteUser(this);">삭제</button>
+							</td>
+						</tr>
+						<tr id="mview_${user.userId}" data-id="${user.userId}" style="display: none;" class="text-center">
+							<td>${user.userId}</td>
+							<td><input type="text" name="userpwd" id="userpwd${user.userId}" value="${user.userPwd}"></td>
+							<td>${user.userName}</td>
+							<td><input type="text" name="email" id="email${user.userId}" value="${user.emailId}@${user.emailDomain}"></td>
+							<td>${user.joinDate}</td>
+							<td>
+								<button type="button" class="modifyBtn btn btn-primary btn-sm"onclick="userModify(this)">  수정</button>
+								<button type="button" class="cancelBtn btn btn-danger btn-sm" onclick="closeModify(this)">취소</button>
+							</td>
+						</tr>
+					`;
+        });
+        document.querySelector("#userlist").innerHTML = tbody;
+      }
+    
   </script>
 </body>
 

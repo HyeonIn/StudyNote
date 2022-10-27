@@ -11,5 +11,8 @@ public interface MemberService {
 	void joinMember(MemberDto memberDto) throws Exception;
 	MemberDto loginMember(Map<String, String> map) throws Exception;
 	List<MemberDto> listMember(Map<String, Object> map) throws Exception;
+	void deleteMember(String userId) throws Exception;
+	MemberDto getMember(String userId) throws Exception;
+	void modifyMember(MemberDto memberDto) throws Exception;
 	
 }
