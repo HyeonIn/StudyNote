@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.ws.model.dao.BookMapper">
+	<!-- Book 정보를 저장한다. -->
+	<insert id="insert" parameterType="Book">
+		insert into book(isbn, title, author, price, content)
+		values(#{isbn}, #{title}, #{author}, #{price}, #{content})
+	</insert>
+	<!-- Book 정보를 삭제한다. -->
+
+	<!-- Book 정보를 수정한다. -->
+
+	<!-- Book 정보를 조회한다. -->
+
+	<!-- Book에서 검색한다. -->
+	<select id="search" resultType="Book">
+		select isbn, title, author, price, content, img
+		from book
+	</select>
+	<!-- 검색 조건에 해당하는 데이터 건수를 반환한다. -->
+</mapper>
