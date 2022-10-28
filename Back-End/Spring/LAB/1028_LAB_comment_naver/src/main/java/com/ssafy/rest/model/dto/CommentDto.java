@@ -1,4 +1,4 @@
-package com.ssafy.board.model.dto;
+package com.ssafy.rest.model.dto;
 
 public class CommentDto {
 	private int cno;

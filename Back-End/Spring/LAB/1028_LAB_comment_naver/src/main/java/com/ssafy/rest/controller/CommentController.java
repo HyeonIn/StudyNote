@@ -1,20 +1,22 @@
-package com.ssafy.board.controller;
+package com.ssafy.rest.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ssafy.board.model.dto.CommentDto;
-import com.ssafy.board.model.service.CommentService;
+import com.ssafy.rest.model.dto.CommentDto;
+import com.ssafy.rest.model.service.CommentService;
 
 @Controller
 @RequestMapping("/comment")
+@CrossOrigin(origins = {"*"}, maxAge = 6000)
 public class CommentController {
 	@Autowired
 	private CommentService service;

@@ -25,20 +25,6 @@
 					<td>내용:</td>
 					<td>${board.content }</td>
 					</tr>
-					<c:if test="${not empty uploadedFiles }">
-						<tr>
-							<td>
-								첨부 파일 목록
-							</td>
-							<td>
-								<c:forEach var="f" items="${uploadedFiles }">
-									<a href="${root }/download?fno=${f.fno}">${f.originalName }</a>
-									<img alt="" src="c:/SSAFY/upload/${f.savedName }">
-								</c:forEach>
-							</td>
-						</tr>
-						
-					</c:if>
 				</table>
 			</div>		
 		</div>
@@ -77,7 +63,7 @@
 	</div>
 	<script type="text/javascript">
 		async function getComments(){
-			let url = '${root}/comment/list?bno=${board.bno}';
+			let url = 'http://localhost:7777/rest/comment/list?bno=${board.bno}';
 			let response = await fetch(url);
 			let data = await response.json();
 			console.log(data);
@@ -91,16 +77,16 @@
 					comments += '</tr>';
 					
 				} 
-				document.getElementById("ctable").innerHTML += comments;
+				document.getElementById("ctable").innerHTML = comments;
 			}
 			
 		}
 		getComments();
 		document.getElementById('sendComment').onclick = async function(){
-			let url = '${root}/comment/write';
+			let url = 'http://localhost:7777/rest/comment/write';
 			let cwriter = document.getElementById("cwriter").value;
 			let ccontent = document.getElementById("ccontent").value;
-			
+			console.log('${board.bno}')
 			let response = await fetch(url, {
 				method:'POST',
 				header:{

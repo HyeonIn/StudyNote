@@ -19,15 +19,12 @@ import com.ssafy.board.model.dto.BoardDto;
 import com.ssafy.board.model.dto.FileDto;
 import com.ssafy.board.model.dto.MemberDto;
 import com.ssafy.board.model.service.BoardService;
-import com.ssafy.board.model.service.CommentService;
 
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 	@Autowired
 	private BoardService boardService;
-	@Autowired
-	private CommentService commentService;
 	
 	@GetMapping("/list")
 	public ModelAndView list(@RequestParam(value="page", defaultValue="1")int page) {

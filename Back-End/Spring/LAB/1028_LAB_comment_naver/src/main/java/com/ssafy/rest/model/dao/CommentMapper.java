@@ -1,8 +1,8 @@
-package com.ssafy.board.model.dao;
+package com.ssafy.rest.model.dao;
 
 import java.util.List;
 
-import com.ssafy.board.model.dto.CommentDto;
+import com.ssafy.rest.model.dto.CommentDto;
 
 public interface CommentMapper {
 	public int insert(CommentDto comment);

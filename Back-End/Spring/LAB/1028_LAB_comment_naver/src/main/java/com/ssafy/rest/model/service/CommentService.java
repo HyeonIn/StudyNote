@@ -1,12 +1,12 @@
-package com.ssafy.board.model.service;
+package com.ssafy.rest.model.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ssafy.board.model.dao.CommentMapper;
-import com.ssafy.board.model.dto.CommentDto;
+import com.ssafy.rest.model.dao.CommentMapper;
+import com.ssafy.rest.model.dto.CommentDto;
 
 @Service
 public class CommentService {
