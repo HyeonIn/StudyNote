@@ -199,6 +199,14 @@
 - Spring DI Container가 관리 하는 객체를 빈(Bean)이라 하고, 이 빈들의 생명주기를 관리하는 것을 빈팩토리(BeanFactory)라 한다.
 - BeanFactory에 여러 가지 컨테이너 기능을 추가한 것을 ApplicationContext라 함
 
+##### BeanFactory
+
+- Bean을 등록, 생성, 조회, 반환 관리
+- 일반적으로 BeanFactory보다는 이를 확장한 ApplicationContext를 사용
+- getBean() method가 정의되어 있음
+
+#####
+
 ### Spring 프로젝트 생성
 
 - 인코딩 설정 확인
@@ -300,3 +308,29 @@ aop로 예외처리 가능
   - Ajax의 크로스 도메인 문제를 해결
 - @ReqeustBody
   - JSON 데이터를 원하는 타입으로 바인딩
+
+### SpringBoot
+
+##### SpringBoot의 특징
+
+- Spring의 경우 어플리케이션을 개발하려면 사전에 많은 작업을 해야했다
+- SpringBoot의 장점
+  - 프로젝트에 따라 자주 사용되는 라이브러리들이 미리 조합되어 있다
+  - 복잡한 설정을 자동으로 처리
+  - 내장 서버를 포함해서 톰캣과 같은 WAS를 추가로 설치하지 않아도 개발 가능
+  - WAS에 배포하지 않고도 실행할 수 있는 JAR 파일로 Web Application을 개발 할 수 있다
+
+##### 프로젝트 생성 구조 및 주요 구성 폴더/파일
+
+- src/main/java
+  - java source directory
+- HelloSpringBootApplication.java
+  - application을 시작할 수 있는 main method가 존재하는 스프링 구성 메인 클래스
+- static
+  - css, js, img, html 등 정적 resource directory
+- templates
+  - SpringBoot에서 사용가능한 여러가지 View Template 위치
+- application.properties
+  - application 및 스프링의 설정 등에서 사요할 여러 가지 property를 정의한 file
+- src/main
+  - jsp등의 리소드 directory

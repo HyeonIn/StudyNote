@@ -17,11 +17,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/naver")
 @CrossOrigin(origins = {"*"}, maxAge = 6000)
+@Api("어드민 컨트롤러  API V1")
 public class NaverController {
 	
+	@ApiOperation(value = "게시글 검색 내용", notes = "해당 키워드에 대한 모든 블로그 게시글들을 보여줍니다")
 	@GetMapping("/blog")
 	public String blog(String keyword) {
 		String clientId = "wbMMoNH80Lz_1dcgkIbl"; //애플리케이션 클라이언트 아이디
