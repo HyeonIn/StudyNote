@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	여기는 스프링 부트 프로젝트 입니다.
+	<br> 처음으로 화면이 생겼네요^^
+	<br>
+	<hr>
+	<a href="/rest/hello">[게시판으로 이동]</a>
+	<input type="text" id="keyword">
+	<button id="btnSearch">검색</button>
+	<div id="result"></div>
+	<script type="text/javascript">
+		document.getElementById('btnSearch').onclick = function() {
+			let keyword = document.getElementById('keyword').value;
+			
+			fetch('http://localhost:7777/rest/naver/blog?keyword='+keyword)
+			.then((resp)=>resp.json())
+			.then((data)=>{
+				console.log(data);
+				
+				let el = ``;
+				for(let i=0; i<data.items.length; i++){
+					el += `<h3>${data.items[i].title}</h3>`;
+					el += `${data.items[i].bloggerName}`;
+					el += `<hr>`
+				}
+				document.getElementById('result').innerHTML = el;				
+			})
+		}
+	</script>
+</body>
+</html>
+
+
+
