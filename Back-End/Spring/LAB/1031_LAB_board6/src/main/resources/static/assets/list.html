@@ -254,7 +254,7 @@
         };
         fetch(`${root}/admin/user`, config)
           .then((response) => response.json())
-          .then((data) => makeList(data));
+          .then((data) => console.log(data));
       });
 
       //회원 정보 보기.

@@ -70,11 +70,9 @@ public class AdminUserController {
 			memberService.joinMember(memberDto);
 			List<MemberDto> list = memberService.listMember(null);
 			return new ResponseEntity<List<MemberDto>>(list, HttpStatus.OK);
-//			return new ResponseEntity<Integer>(cnt, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return exceptionHandling(e);
 		}
-
 	}
 
 	@ApiOperation(value = "회원정보", notes = "회원한명에 대한 정보.")
