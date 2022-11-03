@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사용자 관리 사이트</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <!-- Vue CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header>
+      <nav class="header-nav">
+        <div>
+          <a href="index.html" class="logo">SSAFY USERS</a>
+        </div>
+        <div>
+          <a href="login.html">로그인</a>
+          <a href="regist.html">회원가입</a>
+          <a href="list.html">사용자목록</a>
+        </div>
+      </nav>
+    </header>
+    <!-- Main -->
+    <div class="container">
+      <h2>사용자 목록</h2>
+      <div v-if="users.length">
+        <table class="user-list">
+          <colgroup>
+            <col style="width: 5%" />
+            <col style="width: 40%" />
+            <col style="width: 20%" />
+            <col style="width: 20%" />
+            <col style="width: 15%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>아이디</th>
+              <th>이름</th>
+              <th>이메일</th>
+              <th>나이</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--반복문을 통해 사용자 정보 출력-->
+            <tr v-for="(user, index) in users" :key="index">
+              <td>{{ index + 1 }}</td>
+              <td>{{ user.id }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.age }} 세</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div v-else>등록된 사용자가 없습니다.</div>
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      name: "list",
+      data: {
+        users: [
+          {
+            img: "img/아이언맨.png",
+            id: "IronMan",
+            name: "토니 스타크",
+            email: "ironman@ssafy.com",
+            age: 53,
+          },
+          {
+            img: "img/캡틴.png",
+            id: "CaptainAmerica",
+            name: "스티브 로저스",
+            email: "Captain@ssafy.com",
+            age: "30",
+          },
+          {
+            img: "img/토르.png",
+            id: "Thor",
+            name: "토르",
+            email: "GodOfThunder@ssafy.com",
+            age: "1500",
+          },
+          {
+            img: "img/헐크.png",
+            id: "Hulk",
+            name: "브루스 배너",
+            email: "hulk@ssafy.com",
+            age: "54",
+          },
+          {
+            img: "img/블랙위도우.png",
+            id: "BlackWidow",
+            name: "나타샤 로마노프",
+            email: "blackwidow@ssafy.com",
+            age: "38",
+          },
+          {
+            img: "img/울트론.png",
+            id: "Ultron",
+            name: "울트론",
+            email: "ultron@ssafy.com",
+            age: "0",
+          },
+        ],
+      },
+    });
+  </script>
+</body>
+
+</html>

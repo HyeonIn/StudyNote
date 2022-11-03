@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사용자 관리 사이트</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <!-- Vue CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header>
+      <nav class="header-nav">
+        <div>
+          <a href="index.html" class="logo">SSAFY USERS</a>
+        </div>
+        <div>
+          <a href="login.html">로그인</a>
+          <a href="regist.html">회원가입</a>
+          <a href="list.html">사용자목록</a>
+        </div>
+      </nav>
+    </header>
+    <!-- Main -->
+    <div class="container">
+      <h2>로그인</h2>
+      <fieldset class="text-center">
+        <label for="id">아이디</label>
+        <input type="text" id="id" v-model="id" class="view" /><br />
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" v-model="password" class="view" /><br />
+        <button class="btn">로그인</button>
+      </fieldset>
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      name: "login",
+      data: {
+        id: "",
+        password: "",
+      },
+    });
+  </script>
+</body>
+
+</html>

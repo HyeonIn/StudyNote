@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사용자 관리 사이트</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <!-- Vue CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<div id="app">
+  <!-- Header -->
+  <header>
+    <nav class="header-nav">
+      <div>
+        <a href="index.html" class="logo">SSAFY USERS</a>
+      </div>
+      <div>
+        <a href="login.html">로그인</a>
+        <a href="regist.html">회원가입</a>
+        <a href="list.html">사용자목록</a>
+      </div>
+    </nav>
+  </header>
+  <!-- Main -->
+  <div class="container">
+    <div class="text-center">
+      <br />
+      <h1>{{ message }}</h1>
+    </div>
+    <br />
+    <div class="text-center">
+      <input class="view" type="text" v-model="search" placeholder="이름을 입력하세요." />
+      <button class="btn">검색</button>
+    </div>
+    <br />
+    <hr />
+    <div>
+      <h2>검색 결과</h2>
+      <!-- user 가 null 이 아니면 보여주기 -->
+      <div v-if="user"></div>
+      <div v-else>검색 결과가 없습니다.</div>
+    </div>
+    <br />
+  </div>
+</div>
+
+<script>
+  // Vue instance 생성
+  new Vue({
+    el: "#app",
+    name: "index",
+    data: {
+      message: "사용자 정보 사이트에 오신것을 환영합니다.",
+      search: "",
+      users: null,
+    },
+  });
+</script>
+</body>
+
+</html>
