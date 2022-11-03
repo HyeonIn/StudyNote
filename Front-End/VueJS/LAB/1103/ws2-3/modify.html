@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>도서관리</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
   <link rel="stylesheet" href="./css/main.css" />
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
@@ -16,7 +17,7 @@
       <p class="logo">도서관리</p>
     </div>
     <div class="regist">
-      <h1 class="underline">SSAFY 도서 등록</h1>
+      <h1 class="underline">SSAFY 도서 정보</h1>
       <div class="regist_form">
         <label for="isbn">도서번호</label>
         <input type="text" id="isbn" name="isbn" v-model="book.isbn" /><br />
@@ -29,7 +30,7 @@
         <label for="content">설명</label>
         <br />
         <textarea id="content" name="content" v-model="book.content" cols="35" rows="5"></textarea><br />
-        <button @click="enroll">등록</button>
+        <button @click="modify">수정</button>
         <button onclick="location.href='list.html'">목록</button>
       </div>
     </div>
@@ -40,18 +41,18 @@
       name: "create",
       data: {
         book: {
-          isbn: "",
-          title: "",
-          author: "",
-          price: "",
-          content: "",
+          isbn: "111-222-7778",
+          title: "잘생긴 현인이",
+          author: "최현인",
+          price: "100000",
+          content: "현인이는 잘생겼다",
         },
 
       },
       methods: {
-        enroll() {
-          alert("도서가 등록되었습니다!");
-          location.href = "list.html"
+        modify() {
+          alert("도서가 수정되었습니다!");
+          location.href = "view.html"
         }
       },
     });

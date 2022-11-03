@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>도서관리</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
   <link rel="stylesheet" href="./css/main.css" />
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
@@ -16,20 +17,21 @@
       <p class="logo">도서관리</p>
     </div>
     <div class="regist">
-      <h1 class="underline">SSAFY 도서 등록</h1>
+      <h1 class="underline">SSAFY 도서 정보</h1>
       <div class="regist_form">
         <label for="isbn">도서번호</label>
-        <input type="text" id="isbn" name="isbn" v-model="book.isbn" /><br />
+        <input type="text" id="isbn" name="isbn" v-model="book.isbn" disabled /><br />
         <label for="title">도서명</label>
-        <input type="text" id="title" name="title" v-model="book.title" /><br />
+        <input type="text" id="title" name="title" v-model="book.title" disabled /><br />
         <label for="author">저자</label>
-        <input type="text" id="author" name="author" v-model="book.author" /><br />
+        <input type="text" id="author" name="author" v-model="book.author" disabled /><br />
         <label for="price">가격</label>
-        <input type="number" id="price" name="price" v-model="book.price" /><br />
+        <input type="number" id="price" name="price" v-model="book.price" disabled /><br />
         <label for="content">설명</label>
         <br />
-        <textarea id="content" name="content" v-model="book.content" cols="35" rows="5"></textarea><br />
-        <button @click="enroll">등록</button>
+        <textarea id="content" name="content" v-model="book.content" cols="35" rows="5" disabled></textarea><br />
+        <button onclick="location.href='modify.html'">수정</button>
+        <button onclick="location.href='delete.html'">삭제</button>
         <button onclick="location.href='list.html'">목록</button>
       </div>
     </div>
@@ -40,11 +42,11 @@
       name: "create",
       data: {
         book: {
-          isbn: "",
-          title: "",
-          author: "",
-          price: "",
-          content: "",
+          isbn: "111-222-7778",
+          title: "잘생긴 현인이",
+          author: "최현인",
+          price: "100000",
+          content: "현인이는 잘생겼다",
         },
 
       },

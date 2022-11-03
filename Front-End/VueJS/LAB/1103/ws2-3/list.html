@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>도서 목록</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="header">
+      <a href="index.html"> <img src="./img/ssafy_logo.png" id="ssafy_logo" /></a>
+      <p class="logo">도서관리</p>
+    </div>
+    <h1 class="underline">도서 목록</h1>
+    <table id="book-list">
+      <thead>
+        <th>번호</th>
+        <th>ISBN</th>
+        <th>제목</th>
+        <th>저자</th>
+        <th>가격</th>
+      </thead>
+      <tr v-for="(book, index) in books" :key="index" onclick="location.href='view.html'">
+        <td>
+          {{index+1}}
+        </td>
+        <td>
+          {{book.isbn}}
+        </td>
+        <td>
+          {{book.title}}
+        </td>
+        <td>
+          {{book.price}}
+        </td>
+        <td>
+          {{book.author}}
+        </td>
+      </tr>
+    </table>
+    <button onclick="location.href='list.html'">도서 등록</button>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: "#app",
+    name: "create",
+    data: {
+      books: [
+        {
+          isbn: "111-222-7777",
+          title: "스프링 재미있나요?",
+          author: "안효인",
+          price: "35000",
+          content: "스프링 재미있겠지..?",
+        },
+        {
+          isbn: "111-333-1234",
+          title: "우간다 연애기록",
+          author: "김인수",
+          price: "5000",
+          content: "스프링 재미있겠지..?",
+        },
+        {
+          isbn: "111-222-7778",
+          title: "잘생긴 현인이",
+          author: "최현인",
+          price: "1000000",
+          content: "스프링 재미있겠지..?",
+        },
+
+      ]
+
+    },
+    methods: {
+      enroll() {
+        console.log(this.book);
+      }
+    },
+  });
+
+</script>
+
+</html>
