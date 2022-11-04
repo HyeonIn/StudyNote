@@ -110,3 +110,5 @@
 - 스프링 환경 설정파일(application-context.xml)에 데이터 소스를 설정
 - 데이터 소스는 dataSource 아이디를 가진 빈으로 데이터베이스 연결정보를 가진 객체
 - MyBatis와 스프링을 연동하면 데이터베이스 설정과 트랜잭션 처리는 스프링에서 관리
+
+<img src="datasource.PNG"><br>
