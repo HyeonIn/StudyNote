@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let id = "ssafy",
+        name = "yangyu",
+        age = 30;
+      // 이 변수들을 하나의 객체에 몰아담고 싶음. 예전에는 이렇게 했음
+      //   let user = {
+      //     "id": id,
+      //     "name": name,
+      //     "age": age,
+      //   };
+
+      // 위처럼 객체에 집어넣는 변수 이름이랑 객체의 프로퍼티 이름이 일치하는 경우
+      // 프로퍼티 이름 생략 가능
+      let user = { id, name, age };
+      console.log("user", user);
+      ////////////////////////////////////////////////////////////////////////////////////////
+      // 자바스크립트는 변수에 타입이 없어서 아무거나 담을 수 있음.
+      // 객체의 프로퍼티들도 하나하나가 변수라서 아무거나 다 담을 수 있음.
+      //   let user = {
+      //     "id": id,
+      //     "name": name,
+      //     "age": age,
+      //     "info": function(){},
+      //     "best-friend" : {id:'samsung', 'name':'jaedragon', age:100},
+      //   };
+      // 아휴 번거롭다. 아래처럼 축약 가능해진거임. 변수 + 함수까지!
+      let user2 = {
+        id,
+        name,
+        age,
+        info() {},
+        "best-friend": { id: "samsung", name: "jaedragon", age: 100 },
+      };
+      console.log("user2", user2);
+    </script>
+  </body>
+</html>

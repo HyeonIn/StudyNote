@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log("outer this", this);
+      function a() {
+        console.log("a this", this);
+      }
+      a();
+
+      let obj = {
+        name: "yangyu",
+        aa: function () {
+          console.log("obj aa this", this);
+        },
+      };
+      obj.aa();
+
+      let obj2 = {
+        // new Vue객체일때
+        name: "yangyu",
+        getComments: function () {
+          let _this = this;
+
+          fetch(url).then(() => {
+            // 여기서 this가 Vue말고 Window가 되는게 문제임.
+            console.log("obj2 aa this", _this);
+          });
+        },
+      };
+      obj2.aa();
+    </script>
+  </body>
+</html>

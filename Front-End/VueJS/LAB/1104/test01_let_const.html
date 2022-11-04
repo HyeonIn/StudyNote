@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 20;
+        var a = 30;
+        console.log('a', a);
+
+        let b = 20;
+        // let b = 30; // 두번 선언하면 let은 에러남!
+        b = 30;
+        console.log('b', b)
+
+        const c = 100;
+        // c = 200; // const는 재할당 불가능.
+        console.log(c);
+
+        const person = {name:'yangyu', age:30};
+        // person = 200; // person에 재 대입은 안됨
+        
+        person.age=20; // 근데 객체에 접근해서 age 변수를 변경하는건 문제 없음.
+        console.log('person', person);
+/////////////////////////////////////////////////////////////////////////////
+        // var의 유효범위 : 함수 영역(function scope)
+        var x = 100;
+        function f1(){
+            var x = 200;
+            console.log('f1 x='+x);
+        }
+        f1();
+        console.log('outer x='+x);
+        // 위에처럼 지역변수는 함수 안에서만 쓰고 바깥에 영향 안주면 괜찮은거 같았음.
+        // 문제는 동일 함수 영역안에서 또는 전역에서 발생하는 일들임.
+        var i=10;
+        for(var i=0; i<5; i++){
+            console.log('for i='+i);
+        }
+        console.log('outer i='+i); // 10은 영영 사라져버려써ㅠㅠㅠㅠ
+
+        // 그래서 let이 나온거임. 조건문 반복문 등의 더 작은 scope를 가지게 할 수 있어졌음.
+        let j=10;
+        for(let j=0; j<5; j++){
+            console.log('for j='+j);
+        }
+        console.log('outer j='+j);
+
+    </script>
+    
+</body>
+</html>
+
+
+
+

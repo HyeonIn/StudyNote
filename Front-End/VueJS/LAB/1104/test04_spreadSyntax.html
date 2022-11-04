@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr1 = [10, 20, 30, 40, 50];
+      //   const arr1Copy = arr1; // 배열객체 주소가 복사됨. 즉 얕은복사. 원본 훼손 가능성 농후
+      //   arr1Copy[0] = 999;
+      //   console.log(arr1); // 원본 훼손돼있을 것임.
+
+      // 위처럼 얕은복사 말고 깊은복사 하려면 이렇게 반복문 돌려서 하나하나 복사떠야 함.
+      const arr1Copy2 = [];
+      for (let i = 0; i < arr1.length; i++) {
+        arr1Copy2.push(arr1[i]);
+      }
+      arr1Copy2[0] = 999;
+      console.log(arr1Copy2);
+      console.log(arr1);
+      //////////////////////////////////////////////////////////////////////////////////////////////
+      // 대입 연산 오른쪽에 있는 애를 오도도도 다져서 왼쪽에 복사해주는 역할
+      const arr2 = [10, 20, 30];
+      const arr2Copy = [...arr2];
+      arr2Copy[0] = 999;
+      console.log("arr2", arr2);
+
+      // 아무리 deepcopy라도 아래처럼 하나하나가 객체인 경우는 주의해야 함. [0], [1], [2]가 다 객체주소임.
+      const arr3 = [
+        { name: "김싸피", age: 20 },
+        { name: "김인수", age: 29 },
+        { name: "최현인", age: 28 },
+      ];
+      console.log("before", JSON.stringify(arr3));
+      const arr3Copy = [...arr3]; // 객체주소 3개가 복사됨.
+      //   setTimeout(() => {
+      arr3Copy[0].name = "김나박이";
+      console.log("after", JSON.stringify(arr3));
+      //   }, 3000);
+
+      // 객체의 세부 프로퍼티까지 완벽하게 사본으로 복사뜨고 싶으면 아래가 제일 심플
+      const arr3deepCopy = JSON.parse(JSON.stringify(arr3));
+      ////////////////////////////////////////////////////////////////////////////////////////////
+      // ... 연산자는 대입연산 오른쪽에 있는 대상을 오도도 다질때 쓰는데, 두개 이상의 덩어리를 합칠때에도 유용
+      const arr4 = [1, 2, 3];
+      const arr5 = [4, 5, 6];
+      const merge4_5 = [...arr4, ...arr5, 10, 20];
+      console.log(merge4_5);
+
+      // 보통 ...는 배열 펼쳐서 복사할 때 많이 쓰이긴 하지만 객체도 가능함.
+      const user = arr3[0];
+      const userCopy = { ...user };
+
+      // 객체도 합칠 수 있음!
+      const user1 = { n: "김인수", a: 29 }; // 김인수
+      const user2 = { nn: "최현인", aa: 28 }; // 최현인
+      const user1_2 = { ...user1, ...user2 };
+      console.log("user1_2", user1_2);
+      ///////////////////////////////////////////////////////////////////////////
+      // 응용되면 이렇게 대입연산 왼쪽에서 ...가 쓰인다거나
+      const arr = [1, 2, 3, 4, 5];
+      const [a0, a1, ...rrr] = arr;
+      console.log(a0, a1, rrr);
+
+      // destructuring이랑 같이 파괴하는 과정에서 쓸수도 있음.
+      const person = { name: "김싸피", age: 30, phone: "010-1234-5678" };
+      const { name: myName, ...ttt } = person;
+      console.log(myName, ttt);
+    </script>
+  </body>
+</html>

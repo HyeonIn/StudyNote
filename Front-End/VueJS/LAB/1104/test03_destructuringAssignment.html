@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let user = {
+        id: "ssafy",
+        name: "yangyu",
+        age: 30,
+        phone: "010-7564-0626",
+        major: "computor engineering",
+      };
+      // 기존에는 이렇게 하나하나 값 뜯어서 변수에 담아줬어야 함.
+      //   let id = user.id;
+      //   let name = user.name;
+      //   let phone = user.phone;
+
+      // 이렇게 하면 변수 3개 한꺼번에 생성해서 user의 값을 뜯어서 넣어줌.
+      let { id, name, phone } = user;
+      console.log(id + "," + name + "," + phone);
+
+      // 객체가 가지는 프로퍼티 명과 다른 이름의 변수 만들어서 값 뜯어내고 싶으면 아래처럼.
+      // user에 해당 이름의 프로퍼티가 없을경우를 대비해 기본값 셋팅도 가능
+      let { id: i, name: n, phone: p, major = "math", a = "what", b } = user;
+      console.log(i, n, p, major, a, b);
+      ///////////////////////////////////////////////////////////////////////
+      // 개발하다 외부 라이브러리 함수를 호출할거임. 근데 걔가 객체를 리턴하는 경우가 생김.
+      function lib() {
+        return { title: "vue.js", corona: "so sad", a: "a", b: "b", c: "c" };
+      }
+      // 이런 라이브러리 함수가 있었다고 가정하면 뭐가 되게 많이 들어있는 객체가 나옴.
+      // 그 중에 내가 원하는 것만 떼내서 진행하고 싶은 경우!
+      let { corona: cororong } = lib();
+    </script>
+  </body>
+</html>
