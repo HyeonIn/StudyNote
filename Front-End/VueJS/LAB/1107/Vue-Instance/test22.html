@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <script>
+      let vm = new Vue({
+        data: {
+          a: 1,
+        },
+        computed: {
+          // get만 가능합니다.
+          aDouble() {
+            return this.a * 2;
+          },
+          // get과 set 입니다.
+          aPlus: {
+            get() {
+              console.log('get');
+              return this.a + 1;
+            },
+            set(v) {
+              console.log('set');
+              this.a = v - 1;
+            },
+          },
+        },
+      });
+      console.log(vm);
+      console.log(vm.a);
+      // get 메서드 호출
+      console.log(vm.aPlus); // => 2
+      // 값을 설정하기 위해서는 set 메서드 필요함
+      vm.aPlus = 3;
+      console.log(vm.a); // => 2
+      console.log(vm.aDouble); // => 4
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <input type="text" v-model="msg" />
+    </div>
+    <div>
+      <h2>결과 :</h2>
+      <h3>{{ msg | count1 }}</h3>
+      <h3>{{ msg | count2('문자를 넣어보세요') }}</h3>
+    </div>
+  </div>
+
+  <script>
+    Vue.filter('count1', (val) => {
+      if (val.length == 0) {
+        return;
+      }
+      return `${val} : ${val.length}자`;
+    });
+    new Vue({
+      el: '#app',
+      data: {
+        msg: '',
+      },
+      filters: {
+        count2(val, alternative) {
+          if (val.length == 0) {
+            return alternative;
+          }
+          return `${val} : ${val.length}자`;
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <child-comp area="부울경" v-bind:msg="msg[parseInt(Math.random() * 5)]"></child-comp>
+      <child-comp area="광주" v-bind:msg="msg[parseInt(Math.random() * 5)]"></child-comp>
+      <child-comp area="구미" v-bind:msg="msg[parseInt(Math.random() * 5)]"></child-comp>
+      <child-comp area="대전" v-bind:msg="msg[parseInt(Math.random() * 5)]"></child-comp>
+      <child-comp area="서울" v-bind:msg="msg[parseInt(Math.random() * 5)]"></child-comp>
+    </div>
+    <template id="ChildComp">
+      <div>
+        <h2>SSAFY {{area}}지역 8기 {{msg}}</h2>
+      </div>
+    </template>
+    <script>
+      Vue.component("childComp", {
+        props: ["area", "msg"],
+        template: "#ChildComp",
+      });
+      new Vue({
+        el: "#app",
+        data: {
+          msg: ["굿^^", "최고!!", "실화냐?", "좋아요*", "짱!!"],
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <p>
+        이메일 수신
+        <input type="checkbox" id="emailYN" v-model="email" />
+        <label for="emailYN">{{ email }}</label>
+      </p>
+    </div>
+    <div>
+      <p>
+        SMS 수신
+        <input type="checkbox" id="smsYN" v-model="sms" true-value="Y" false-value="N" />
+        <label for="smsYN">{{ sms }}</label>
+      </p>
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        email: false,
+        sms: 'Y',
+      },
+    });
+  </script>
+</body>
+
+</html>

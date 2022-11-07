@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app1">
+    <my-global></my-global>
+    <my-global></my-global>
+  </div>
+  <div id="app2">
+    <my-global></my-global>
+    <my-global></my-global>
+  </div>
+  <script>
+    // 전역 컴포넌트 설정
+    Vue.component("my-global", {
+      template: '<div><h2>전역 컴포넌트임</h2><h3>안녕하세요</h3></div>',
+    });
+
+    new Vue({
+      el: "#app1",
+    });
+    new Vue({
+      el: "#app2",
+    });
+  </script>
+</body>
+
+</html>

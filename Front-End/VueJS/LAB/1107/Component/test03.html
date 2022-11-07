@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <my-comp></my-comp>
+  </div>
+  <!-- template 설정 -->
+  <template id="mycomp">
+    <div>
+      <h2>{{msg}}</h2>
+    </div>
+  </template>
+  <script>
+    Vue.component("my-comp", {
+      template: "#mycomp",
+      data() {
+        return {
+          msg: "hello component",
+        };
+      },
+    });
+
+    new Vue({
+      el: "#app",
+    });
+  </script>
+</body>
+
+</html>

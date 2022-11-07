@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .success {
+      color: dodgerblue;
+    }
+
+    .fail {
+      color: darkred;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>엘리먼트 참조하기</h2>
+    <!-- 아이디 : <input type="text" v-model="id"> -->
+    아이디 : <input type="text" v-model="id" ref="id" @keyup="idCheck" />
+    <button @click="idCheck">아이디 중복 체크</button>
+    <div v-bind:class="{success : isSuccess, fail : isFail}" v-bind:style="myStyle" v-html="msg"></div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        id: '',
+        msg: '',
+        isSuccess: false,
+        isFail: false,
+        myStyle: {
+          fontSize: '25px',
+        },
+      },
+      methods: {
+        idCheck() {
+          if (this.id.length < 5 || this.id.length > 12) {
+            this.msg = `아이디는 5자이상 12자리 이하입니다.`;
+            this.$refs.id.focus();
+            console.dir(this.$refs.id);
+            this.isSuccess = false;
+            this.isFail = false;
+            return;
+          } else {
+            if (this.id === 'ssafy') {
+              this.msg = `<b>${this.id}</b>는 사용할 수 없습니다.`;
+              this.isSuccess = false;
+              this.isFail = true;
+            } else {
+              this.msg = `<b>${this.id}</b>는 사용할 수 있습니다.`;
+              this.isSuccess = true;
+              this.isFail = false;
+            }
+          }
+          console.log(this.$refs.id.value);
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>

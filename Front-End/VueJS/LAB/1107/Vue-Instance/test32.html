@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style type="text/css">
+    .completed {
+      text-decoration: line-through;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li :class="{completed: todo.done}" :style="myStyle" v-for="todo, index in todos" :key="index">
+        {{todo.msg}}
+        <button @click="complete(todo)" class="btn">완료</button>
+      </li>
+    </ul>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        todos: [
+          {
+            msg: "5시간 잠자기",
+            done: false,
+          },
+          {
+            msg: "알고리즘 1시간 공부하기",
+            done: false,
+          },
+          {
+            msg: "Vue 1시간 공부하기",
+            done: false,
+          },
+        ],
+        myStyle: {
+          fontSize: "20px",
+          color: "red",
+        },
+      },
+      methods: {
+        complete: function (todo) {
+          todo.msg = todo.msg + "완료";
+          todo.done = !todo.done;
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>

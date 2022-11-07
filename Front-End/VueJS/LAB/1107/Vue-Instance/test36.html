@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>수업을 듣는 지역을 선택하시오</div>
+    <div>
+      <input type="radio" id="buk" value="부울경" v-model="ckArea" />
+      <label for="buk">부울경</label>
+      <input type="radio" id="gwangju" value="광주" v-model="ckArea" />
+      <label for="gwangju">광주</label>
+      <input type="radio" id="gumi" value="구미" v-model="ckArea" />
+      <label for="gumi">구미</label>
+      <input type="radio" id="daejeon" value="대전" v-model="ckArea" />
+      <label for="daejeon">대전</label>
+      <input type="radio" id="seoul" value="서울" v-model="ckArea" />
+      <label for="seoul">서울</label>
+    </div>
+    <span>선택한 지역 : {{ ckArea }}</span>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        ckArea: '광주',
+      },
+    });
+  </script>
+</body>
+
+</html>

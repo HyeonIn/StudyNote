@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      아이디 :
+      <input v-model.number="num" placeholder="숫자를 입력하세요" />
+      <!-- v-model은 기본적으로 모든 key stroke가 발생할 때마다 값을 업데이트 시킨다.
+           .lazy 수식어를 추가하여 change 이벤트 이후에 동기화 할 수 있습니다. -->
+      <input v-model.lazy="id" placeholder="아이디를 입력하세요" />
+    </div>
+    <div>
+      메세지 :
+      <textarea v-model="message" placeholder="내용을 입력하세요"></textarea>
+    </div>
+    <p>{{ id }} 님에게 보내는 메세지 : {{ num + 4 }}</p>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        id: '',
+        message: '',
+        num: 0,
+      },
+    });
+  </script>
+</body>
+
+</html>

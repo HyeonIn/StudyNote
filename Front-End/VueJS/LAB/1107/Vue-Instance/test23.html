@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <input type="text" v-model="a" />
+    </div>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        a: 1,
+      },
+      watch: {
+        a: function (val, oldVal) {
+          console.log('new: %s, old: %s', val, oldVal);
+        },
+      },
+    });
+    console.log(vm.a);
+    vm.a = 2; // => new: 2, old: 1
+    console.log(vm.a);
+  </script>
+</body>
+
+</html>

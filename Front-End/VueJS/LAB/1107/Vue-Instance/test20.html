@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      금액 : <input type="text" v-model="msg1" /><br />
+      전화번호 : <input type="text" v-model="msg2" maxlength="11" value="{{ msg2 | mobile }}" />
+      <input v-model="number" type="text" maxlength="11" placeholder="-를 제외하고 입력해주세요."
+        oninput="javascript: this.value = this.value.replace(/[^0-9]/g, '');">
+    </div>
+    <div>
+      <h3>{{ msg1 | price }}</h3>
+      <h3>{{ msg2 | mobile }}</h3>
+    </div>
+  </div>
+  <script>
+    Vue.filter('price', (value) => {
+      if (!value) return value;
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    });
+    Vue.filter('mobile', (value) => {
+      if (!value || !(value.length === 10 || value.length === 11)) return value;
+      return value.replace(/^(\d{3})(\d{3,4})(\d{4})/g, '$1-$2-$3');
+    });
+    new Vue({
+      el: '#app',
+      data: {
+        number: '',
+        msg1: '',
+        msg2: '',
+      },
+    });
+  </script>
+</body>
+
+</html>

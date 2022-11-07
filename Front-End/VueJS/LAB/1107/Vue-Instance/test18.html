@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <script>
+        let vm = new Vue({
+            data: {
+                count: 1
+            },
+            methods: {
+                incCount() {
+                    console.log("incCount 호출됨");
+                    this.count++
+                }
+            }
+        })
+        vm.incCount();
+        console.log(vm.count); // 2
+    </script>
+</body>
+</html>
+

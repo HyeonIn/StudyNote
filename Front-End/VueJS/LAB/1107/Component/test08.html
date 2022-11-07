@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <h2>컴포넌트 객체 데이터 전달</h2>
+  <div id="app">
+    <h3>사용자 정보</h3>
+    <member-view :member="user">
+    </member-view>
+  </div>
+  <template id="MemberView">
+    <div>
+      <div>이름 : {{member.name}}</div>
+      <div>나이 : {{member.age}}</div>
+      <div>이메일 : {{member.email}}</div>
+    </div>
+  </template>
+
+  <script>
+    Vue.component('member-view', {
+      props: ["member"],
+      template: "#MemberView"
+    })
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          user: {
+            name: "홍길동",
+            age: 22,
+            email: "hong@ssafy.com",
+          },
+        };
+      },
+    });
+  </script>
+</body>
+
+</html>

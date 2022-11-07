@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button v-on:click="greet">Greet</button>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        name: 'SSAFY',
+      },
+      methods: {
+        greet: function (event) {
+          alert('Hello ' + this.name + '!');
+          console.dir(event.target);
+        },
+      },
+    });
+
+      // 또한 JavaScript를 이용해서 메소드를 호출할 수 있습니다.
+      //vm.greet(); // => 'Hello Vue.js!'
+  </script>
+</body>
+
+</html>

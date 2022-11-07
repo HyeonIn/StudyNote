@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>페이지 이동</h2>
+
+      <a href="test29.html" @click="sendMsg1">페이지 이동 막기1</a><br />
+      <a href="test29.html" @click="sendMsg2">페이지 이동 막기2</a><br />
+      <a href="test29.html" @click.prevent="sendMsg1">페이지 이동 막기3</a><br />
+    </div>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          sendMsg1() {
+            alert('이동할까요?');
+          },
+          sendMsg2(e) {
+            e.preventDefault();
+            alert('이동막기');
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

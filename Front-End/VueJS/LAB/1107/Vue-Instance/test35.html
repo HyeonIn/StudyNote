@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>당신이 가고 싶은 지역을 선택하시오</div>
+    <input type="checkbox" id="buk" value="부울경" v-model="checkedAreas" />
+    <label for="buk">부울경</label>
+    <input type="checkbox" id="gwangju" value="광주" v-model="checkedAreas" />
+    <label for="gwangju">광주</label>
+    <input type="checkbox" id="gumi" value="구미" v-model="checkedAreas" />
+    <label for="gumi">구미</label>
+    <input type="checkbox" id="daejeon" value="대전" v-model="checkedAreas" />
+    <label for="daejeon">대전</label>
+    <input type="checkbox" id="seoul" value="서울" v-model="checkedAreas" />
+    <label for="seoul">서울</label>
+    <br />
+    <span>체크한 이름: {{ checkedAreas }}</span>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        checkedAreas: [],
+      },
+    });
+  </script>
+</body>
+
+</html>

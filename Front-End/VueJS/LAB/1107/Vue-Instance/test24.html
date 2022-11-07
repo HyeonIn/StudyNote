@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>원본 메시지: "{{ message }}"</p>
+      <p>역순으로 표시한 메시지: "{{ reversedMsg }}"</p>
+      <input type="text" v-model="message" />
+    </div>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello',
+          reversedMsg: '',
+        },
+        watch: {
+          message: function (newVal, oldVal) {
+            console.log(newVal, oldVal);
+            this.reversedMsg = newVal.split('').reverse().join('');
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

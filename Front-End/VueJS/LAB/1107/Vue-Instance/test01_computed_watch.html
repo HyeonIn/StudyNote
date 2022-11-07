@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" placeholder="first name" v-model="firstName" />
+        <input type="text" placeholder="last name" v-model="lastName" />
+        <div>
+            <p v-html="fullName"></p>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data() {
+                return {
+                    firstName: "",
+                    lastName: "",
+                    keyword: "",
+                }
+            },
+            computed: {
+                // 수동적인 데이터임. 어떤 data가 변경되면 그걸 재료로 자동 계산 되어지는 형태일 때 씀.
+                // 함수처럼 생겼지만 가져다 쓸 때는 data 변수인 것처럼 가져다 쓰는 특징
+                fullName() {
+                    return '<h2>' + this.firstName + " " + this.lastName + "</h2>";
+                },
+                // 아래처럼 검색 키워드가 변경되면 화면에 뿌릴 글 데이터를 얻어오면 됨
+                // 어딘가에 저장해놓고 추후 가공해서 쓰려면 data에 만들어놔야 함
+                // 그게 아니면 그냥 이렇게 computed에서 계산된 데이터를 바로바로 쓰면 됨
+                // return 필수
+                // 명시적으로 호출하지 않음. 그냥 boards라는 변수 있는 것처럼 가져다 화면에 뿌리는데 씀
+                async boards() {
+                    let resp = await fetch("/board/list?keyword" + this.keyword);
+                    let data = await resp.json();
+                    return data;
+                }
+            },
+            watch: {
+                lastName() {
+                    console.log("lastName 변경");
+                },
+                //data에 있는 항목을 능동적으로 지켜봄
+                // 해당 data가 변경되었을 때 하고자 하는 행동을 적으면 됨
+                // return 자유
+                // 명시적으로 호출하지 않음. keyword 값이 변경 될 때마다 자동으로 호출됨
+                // ssafy라고 입력하면 5번 호출되는 거임. 약간 끔찍;
+                keyword() {
+                    console.log("검색어는 두 글자 이상 입력하셔야 합니다.")
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

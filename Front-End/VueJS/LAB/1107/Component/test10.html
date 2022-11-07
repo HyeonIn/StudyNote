@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h4>당신이 좋아하는 파트를 선택하세요</h4>
+    <h2>총 투표수 : {{ total }}</h2>
+    <subject v-on:add-total-count="addTotalCount" title="코딩"></subject>
+    <subject v-on:add-total-count="addTotalCount" title="알고리즘"></subject>
+  </div>
+  <script>
+    Vue.component("subject", {
+      template: '<button v-on:click="addCount">{{title}} - {{ count }}</button>',
+      //props 설정
+      props: ["title"],
+      data: function () {
+        return {
+          count: 0,
+        };
+      },
+      methods: {
+        addCount: function () {
+          this.count += 1;
+          // 부모 v-on:이름 에 해당하는 이름의 이벤트를 호출
+          this.$emit("add-total-count");
+        },
+      },
+    });
+
+    new Vue({
+      el: "#app",
+      data: {
+        total: 0,
+      },
+      methods: {
+        addTotalCount: function () {
+          this.total += 1;
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>
