@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <!-- 범위 반복문, 배열 반복문 처리 -->
+    <h2>v-for</h2>
+    <div id="app">
+      <h2>범위지정(4)</h2>
+      <span v-for="i in 4"> {{i}} </span>
+
+      <h2>문자열 배열</h2>
+      <ul>
+        <li v-for="name in regions">{{name}}</li>
+      </ul>
+
+      <h2>문자열 배열 - 위치</h2>
+      <ul>
+        <li v-for="(name, i) in regions">번호 : {{i}}, 지역 : {{name}}</li>
+      </ul>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          regions: ["광주", "구미", "대전", "서울", "부울경"],
+        },
+      });
+    </script>
+  </body>
+</html>

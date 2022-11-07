@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <h3>v-if VS v-show</h3>
+            <div v-if="condition">v-if div</div>
+            <div v-show="condition">v-show div</div>
+        </div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                condition: false
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vue.js</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 속성을 바인딩 합니다. -->
+			<div v-bind:id="idValue">v-bind 지정 연습</div>
+			<button v-bind:[key]="btnId">버튼</button>
+
+			<!-- 약어를 이용한 바인딩. -->
+			<div :id="idValue">v-bind 지정 연습</div>
+			<button :[key]="btnId">버튼</button><br />
+		</div>
+		<script>
+			new Vue({
+				el: "#app",
+				data: {
+					idValue: "test",
+					key: "id",
+					btnId: "btn1",
+				},
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h2>v-for와 v-if 함께 사용하기</h2>
+    <div id="app">
+      <label>반수 : </label>
+      <input type="number" v-model.number="count" />
+      <ul>
+        <li v-for="(region, index) in ssafy" v-if="region.count === count">
+          지역 : {{region.name}}, {{region.count}}개반
+        </li>
+      </ul>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          count: 0,
+          ssafy: [
+            {
+              name: "광주",
+              count: 2,
+            },
+            {
+              name: "구미",
+              count: 2,
+            },
+            {
+              name: "대전",
+              count: 3,
+            },
+            {
+              name: "서울",
+              count: 12,
+            },
+            {
+              name: "부울경",
+              count: 2,
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

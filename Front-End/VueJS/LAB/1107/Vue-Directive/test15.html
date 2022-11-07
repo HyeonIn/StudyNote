@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h2>template 태그 사용하기</h2>
+    <div id="app">
+      <label>반수 : </label>
+      <input type="number" v-model.number="count" />
+      <template v-if="count % 2 == 0">
+        <h4>여러개의 태그를 묶어서 처리해야 한다면??</h4>
+        <h4>template 태그를 사용해 보자</h4>
+        <h4>만약에 template가 없다면?? 각태그마다 v-if?</h4>
+      </template>
+      <template v-for="(region, index) in ssafy" v-if="region.count === count">
+        <h3>지역 : {{region.name}} ({{region.count}}개반)</h3>
+      </template>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          count: 0,
+          show: false,
+          ssafy: [
+            {
+              name: "광주",
+              count: 2,
+            },
+            {
+              name: "구미",
+              count: 2,
+            },
+            {
+              name: "대전",
+              count: 3,
+            },
+            {
+              name: "서울",
+              count: 12,
+            },
+            {
+              name: "부울경",
+              count: 2,
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
