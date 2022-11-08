@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>도서관리</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header-nav></header-nav>
+    <!-- <book-list v-on:setbookinfo="getBookInfo"></book-list>
+    <book-view :bookinfo="isbn"></book-view> -->
+    <book-list :cup="bus"></book-list>
+    <book-view :cup="bus"></book-view>
+  </div>
+
+  <script type="module">
+    import HeaderNav from './components/headerNav.js';
+    import BookList from './components/BookList.js';
+    import BookView from './components/BookView.js';
+
+    const bus = new Vue();
+
+    new Vue({
+      el: "#app",
+      components: {
+        HeaderNav, BookList, BookView
+      },
+      data: {
+        isbn: "",
+        bus: bus,
+      },
+      methods: {
+        getBookInfo(receive) {
+          this.isbn = receive;
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>

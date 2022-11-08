@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>도서관리</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="header">
+        <a href="index.html"> <img src="./img/ssafy_logo.png" id="ssafy_logo" /></a>
+        <p class="logo">도서관리</p>
+      </div>
+      <div class="regist">
+        <h1 class="underline">SSAFY 도서 정보</h1>
+        <div class="regist_form">
+          <label for="isbn">도서번호</label>
+          <div class="view">{{book.isbn}}</div>
+          <label for="title">도서명</label>
+          <div class="view">{{book.title}}</div>
+          <label for="author">저자</label>
+          <div class="view">{{book.author}}</div>
+          <label for="price">가격</label>
+          <div class="view">{{numberWithCommas(book.price)}}원</div>
+          <label for="content">설명</label>
+          <div class="view" v-html="enterToBr(book.content)"></div>
+          <div style="padding-top: 15px">
+            <a :href="'./modify.html?isbn=' + book.isbn" class="btn">수정</a>
+            <a :href="'./delete.html?isbn=' + book.isbn" class="btn">삭제</a>
+            <a href="./list.html" class="btn">목록</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        name: "view",
+        data: function () {
+          return {
+            book: {}
+          };
+        },
+        created() {
+          // url에서 파라미터정보 얻기.
+          const params = new URL(document.location).searchParams;
+          // localStorage에서 booklist로 저장된 도서 목록을 얻어온 후 JSON객체로 parsing한다.
+          const booklist = JSON.parse(localStorage.getItem("booklist"));
+          for (let obj of booklist.books) {
+            // 보여줄 isbn을 찾았다면.
+            if (params.get("isbn") == obj.isbn) {
+              // 전역변수 book에 화면에 보여줄 객체를 저장.
+              this.book = obj;
+              break;
+            }
+          }
+        },
+        methods: {
+          numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          },
+          enterToBr(str) {
+            // 문자열에 enter값을 <br />로 변경.(html상에서 줄바꿈 처리)
+            return str.replace(/(?:\r\n|\r|\n)/g, "<br />");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
