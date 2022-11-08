@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사용자 관리 사이트</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- Vue CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+    <div id="app">
+      <header-nav></header-nav>
+      <main-content></main-content>
+      <user-search></user-search>
+    </div>
+
+    <script type="module">
+      import HeaderNav from "./components/HeaderNav.js";
+      import MainContent from "./components/MainContent.js";
+      import UserSearch from "./components/UserSearch.js";
+      new Vue({
+        el: "#app",
+        name: "index",
+        components: {
+          HeaderNav,
+          MainContent,
+          UserSearch,
+        },
+      });
+    </script>
+  </body>
+</html>

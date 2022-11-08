@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사용자 관리 사이트</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <!-- Vue CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header-nav></header-nav>
+    <!-- Main -->
+    <user-detail v-on:update-user="updateUser" v-on:delete-user="deleteUser"></user-detail>
+  </div>
+  <script type="module">
+    import HeaderNav from "./components/HeaderNav.js";
+    import UserDetail from "./components/UserDetail.js";
+    new Vue({
+      el: "#app",
+      name: "detail",
+      components: {
+        HeaderNav,
+        UserDetail,
+      },
+      methods: {
+        updateUser(user) {
+          const params = new URL(document.location).searchParams;
+
+          let userList = JSON.parse(localStorage.getItem("userList"));
+
+          for (let i = 0; i < userList.length; i++) {
+            if (userList[i].id === user.id) {
+              userList[i] = user;
+              break;
+            }
+          }
+
+          userList.forEach((element) => {
+            console.log(element);
+          });
+
+          localStorage.setItem("userList", JSON.stringify(userList));
+
+          location.href = "list.html";
+        },
+        deleteUser(user) {
+          const params = new URL(document.location).searchParams;
+
+          let userList = JSON.parse(localStorage.getItem("userList"));
+
+          for (let i = 0; i < userList.length; i++) {
+            userList.splice(i, 1);
+            alert("삭제 완료");
+            break;
+          }
+
+          localStorage.setItem("userList", JSON.stringify(userList));
+
+          location.href = "list.html";
+        },
+      },
+      computed: {
+        getUser() {
+          if (localStorage.getItem("loginUser")) {
+            return true;
+          } else {
+            return false;
+          }
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>

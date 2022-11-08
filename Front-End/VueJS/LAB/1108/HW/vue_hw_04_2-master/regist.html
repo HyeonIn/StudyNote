@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사용자 관리 사이트</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <!-- Vue CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header-nav></header-nav>
+    <!-- Main -->
+    <user-regist v-on:regist="regist"></user-regist>
+  </div>
+  <script type="module">
+    import HeaderNav from "./components/HeaderNav.js";
+    import UserRegist from "./components/UserRegist.js";
+    new Vue({
+      el: "#app",
+      name: "regist",
+      components: {
+        HeaderNav,
+        UserRegist,
+      },
+      methods: {
+        regist(user) {
+          const userList = localStorage.getItem("userList");
+
+          let newUserList = [];
+
+          if (userList) {
+            newUserList = JSON.parse(userList);
+          }
+
+          newUserList.push(user);
+
+          localStorage.setItem("userList", JSON.stringify(newUserList));
+
+          alert("등록이 완료되었습니다.");
+
+          location.href = "list.html";
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>

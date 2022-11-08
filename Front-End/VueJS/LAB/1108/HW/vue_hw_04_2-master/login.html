@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사용자 관리 사이트</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <!-- Vue CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header-nav></header-nav>
+    <!-- Main -->
+    <login-form v-on:login="login"></login-form>
+  </div>
+  <script type="module">
+    import HeaderNav from "./components/HeaderNav.js";
+    import LoginForm from "./components/LoginForm.js";
+    new Vue({
+      el: "#app",
+      name: "login",
+      components: {
+        HeaderNav,
+        LoginForm,
+      },
+      data: {
+        id: "",
+        password: "",
+      },
+      methods: {
+        login(user) {
+          const userList = JSON.parse(localStorage.getItem("userList"));
+
+          let found = false;
+
+          userList.forEach((item) => {
+            if (item.id === user.id && item.password === user.password) {
+              found = true;
+            }
+          });
+
+          if (found) {
+            alert("로그인 성공!");
+            localStorage.setItem("loginUser", user);
+            location.href = "index.html";
+          } else {
+            alert("로그인 실패!");
+          }
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>
