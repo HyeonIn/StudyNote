@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.rest.model.dao.MemberMapper">
-	<select id="selectOne" resultType="MemberDto">
+	<select id="selectOne" resultType="com.ssafy.rest.model.dto.MemberDto">
 		SELECT ID, NAME
 		FROM MEMBER_TB 
 		WHERE ID=#{id} AND PASSWORD=#{pw}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.rest.model.dao.BoardMapper">
-	<insert id="insert" parameterType="BoardDto" useGeneratedKeys="true" keyProperty="bno" keyColumn="BNO">
+	<insert id="insert" parameterType="com.ssafy.rest.model.dto.BoardDto" useGeneratedKeys="true" keyProperty="bno" keyColumn="BNO">
 		INSERT INTO BOARD_TB(TITLE,WRITER,CONTENT,WRITE_DATE)
 		VALUES(#{title},#{writer},#{content},now())
 	</insert>
@@ -12,7 +12,7 @@
 		WHERE BNO=#{bno}
 	</update>
 	
-	<update id="update" parameterType="BoardDto">
+	<update id="update" parameterType="com.ssafy.rest.model.dto.BoardDto">
 		UPDATE BOARD_TB 
 		SET TITLE = #{title}, CONTENT = #{content}, WRITE_DATE=now()
 		WHERE BNO=#{bno}
@@ -47,7 +47,7 @@
 	</sql>
 
 	<!-- resultMap 이용 -->
-	<resultMap type="BoardDto" id="resultBoard">
+	<resultMap type="com.ssafy.rest.model.dto.BoardDto" id="resultBoard">
 		<result column="WRITE_COUNT" property="writeDate"/>
 		<result column="READ_COUNT" property="readCount"/>
 	</resultMap>

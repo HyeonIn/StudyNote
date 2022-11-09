@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.book.model.mapper.CommentMapper">
+
+	<!-- isbn에 해당하는 댓글 조회 -->
+	<select id="list" resultType="com.ssafy.book.model.CommentDto">
+		select comment_no, user_name, comment, comment_time, isbn
+		from comments
+		where isbn = #{isbn}
+		order by comment_time desc
+	</select>
+
+	<!-- 책 정보 등록 -->
+	<insert id="create" parameterType="com.ssafy.book.model.CommentDto">
+		insert into comments(
+			comment_no, user_name, comment, comment_time, isbn
+		) values (
+			#{comment_no}, #{user_name}, #{comment}, now(), #{isbn}
+		)
+	</insert>
+	
+	<!-- 책 정보 수정 -->
+	<update id="modify" parameterType="com.ssafy.book.model.CommentDto">
+		<![CDATA[
+		update comments
+		set comment = #{comment}
+		where comment_no = #{comment_no}
+		]]>
+	</update>
+
+	<!-- isbn에 따른 책 정보 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete
+		from comments
+		where comment_no = #{comment_no}
+	</delete>
+
+</mapper>
+
