@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      // Promise 적용
+      const todosURL = "https://jsonplaceholder.typicode.com/todos";
+
+      axios
+        .get(todosURL)
+        .then((response) => {
+          console.log(response);
+          return response.data[0].id;
+        })
+        .then((id) => {
+          console.log(id);
+          return axios.get(`${todosURL}/${id}`);
+        })
+        .then((todo) => {
+          console.log(todo.data.title);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          console.log("finally 실행");
+        });
+    </script>
+  </head>
+  <body></body>
+</html>

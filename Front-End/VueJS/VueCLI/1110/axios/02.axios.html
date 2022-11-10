@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+      const URL = "https://jsonplaceholder.typicode.com/todos/1/";
+
+      //   1-1.
+      // const xhr = new XMLHttpRequest();
+
+      // xhr.open("GET", URL);
+      // xhr.send();
+
+      // const response = xhr.response;
+      // console.log("1", response); // 출력안됨.
+
+      // //   1-2.
+      // xhr.onload = function () {
+      //   if (xhr.status === 200) {
+      //     const response = xhr.response;
+      //     console.log("2", response);
+      //   }
+      // };
+
+      //   2. axios >> chaining
+      // promise의 3가지 상태(state)
+      // 1. Pending(대기) : 비동기 처리 로직이 완료되지 않은 상태.
+      // 2. Fulfilled(이행) : 비동기 처리가 완료되어 Promise의 결과 값을 반환해준 상태.
+      // 3. Rejected(실패) : 비동기 처리가 실패하거나 에러가 발생한 상태.
+      const promise = axios.get(URL);
+      console.log("3", promise); // Promise Object (pending : 대기상태)
+
+      promise
+        .then((response) => {
+          console.log("4", response);
+          return response.data;
+        })
+        .then((data) => {
+          console.log("5", data);
+          return data.title;
+        })
+        .then((title) => {
+          console.log("6", title);
+        })
+        .catch((error) => {
+          console.log("7", error);
+        })
+        .finally(() => {
+          console.log("8", "finally 실행");
+        });
+    </script>
+  </head>
+  <body></body>
+</html>

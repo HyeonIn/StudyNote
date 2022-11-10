@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      // Promise >> async & await 적용
+      const todosURL = "https://jsonplaceholder.typicode.com/todos";
+
+      // async 함수는 함수의 앞에 async를 붙여주고
+      // 함수의 내부 로직 중 비동기 처리 로직 앞에 await를 붙여주면 됩니다.
+      // 좀 더 정확하게 말하면 Promise 객체를 반환하는 API 호출 함수 앞에 await를 붙입니다.
+
+      async function getTodo(todosURL) {
+        // await는 반드시 async 함수 안에서 사용.
+        // then 부분이 await로 변경
+        const response = await axios.get(todosURL);
+        const id = response.data[0].id;
+        const todo = await axios.get(`${todosURL}/${id}`);
+        console.log(todo.data.title);
+      }
+
+      getTodo(todosURL).catch((error) => {
+        console.log(error);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
