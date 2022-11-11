@@ -13,6 +13,9 @@
 7. [form input binding](https://github.com/HyeonIn/StudyNote/blob/main/Front-End/VueJS/study/FIB.md)
 8. [Component](https://github.com/HyeonIn/StudyNote/blob/main/Front-End/VueJS/study/component.md)
    1. [Component간 통신](https://github.com/HyeonIn/StudyNote/blob/main/Front-End/VueJS/study/componentTx.md)
+9. [vueCLI](https://github.com/HyeonIn/StudyNote/blob/main/Front-End/VueJS/study/vueCLI.md)
+10. [axios](https://github.com/HyeonIn/StudyNote/blob/main/Front-End/VueJS/study/axios.md)
+11. [vueRouter](https://github.com/HyeonIn/StudyNote/blob/main/Front-End/VueJS/study/vueRouter.md)
 
 ### Vue.js
 
